@@ -17,24 +17,38 @@ This tool processes comic files (PDF, CBR, CBZ, zip archives and directories of 
 
 # In a nutshell
 
-1. Define your e-reader profile :
-   Resolution, gamma, color/grayscale.
+## Define your e-reader profile
+![ereader profile](https://github.com/Gauff/ComicStripToKindle/blob/master/resources/screenshots/ereaderProfile.png)
+Resolution, gamma, color/grayscale.
+
+## Set up the comic profile
+![comic profile](https://github.com/Gauff/ComicStripToKindle/blob/master/resources/screenshots/comicProfile.png)
+Panel detection algorithm, skew check, page split, directions, background color, panel minimum side.
  
-2. Set up the panel extraction profile :
-   Panel detection algorithm, skew check, page split, directions, background color, panel minimum side.
+## Set up the outputs
+![output profile](https://github.com/Gauff/ComicStripToKindle/blob/master/resources/screenshots/outputProfile.png)
+Local directory, email, upload on ereader by USB
  
-3. Set up the outputs :
-   Directory and email
- 
-4. Select the comics files (PDF, CBR, CBZ, and zip archives) or directories.
+## Select the comics files 
+PDF, CBR, CBZ, and zip archives or directories
+Using 'Add Comic files', 'Add Comic Directory', or simply by drag and grop on the file list area.
 
-5. Adjust image in preview mode :
-   Apply and adjust enhancement profiles in real time: automatic rotation, levels, contrast, sharpening, and JPEG quality.
+## Enter preview mode
+Click on a file to enter preview mode
+![preview](https://github.com/Gauff/ComicStripToKindle/blob/master/resources/screenshots/preview.png)
 
-6. Click on "generate" when happy with the preview
+## Adjust image in real time
+![adjust images](https://github.com/Gauff/ComicStripToKindle/blob/master/resources/screenshots/imageEnhancementProfile.png)
+Apply and adjust enhancement profiles in real time: automatic rotation, levels, contrast, sharpening, and JPEG quality.
+
+## Click on "Convert to PDF" when happy with the preview
+
+## Bonus Utility : concatenate all PDF files from a directory
+Choose directory, Write output file name, click 'Concatenate'
+![concatenate](https://github.com/Gauff/ComicStripToKindle/blob/master/resources/screenshots/concatenate.png)
 
 
-## About this Project
+# About this Project
 
 At times, during the night, I get these silly ideas... like when my daughter was learning to read.
 "I wonder if she could read a comic book on that old 6" Kindle?"
