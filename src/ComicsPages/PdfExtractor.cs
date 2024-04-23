@@ -121,7 +121,7 @@ namespace ComicStripToKindle.ComicsPages
 
                 try
                 {
-                    var pageNumber = pdf.NumberOfPages / 2;
+                    var pageNumber = (pdf.NumberOfPages / 2) +1 ;
 
                     while (results.Count == 0)
                         ExtractPage(sourcePdf, outputPath, pageNumber, results);
