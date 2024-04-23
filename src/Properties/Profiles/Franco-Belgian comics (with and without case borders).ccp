@@ -1,0 +1,1 @@
+{"Name":"Franco-Belgian comics (with and without case borders)","PanelReadingDirection":1,"UnSkew":true,"MinimumPanelSizeWidthFraction":8,"MinimumPanelSizeHeightFraction":6,"PanelDetectionAlgorithm":4,"WhiteBackgroundTreshold":180,"BlackBackground":false,"VerticalSplit":false,"IncludePageIfNoPanelDetected":true,"InvertPages":false}

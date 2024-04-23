@@ -1,0 +1,1 @@
+{"Name":"By horizontal white lines","PanelReadingDirection":1,"UnSkew":true,"MinimumPanelSizeWidthFraction":8,"MinimumPanelSizeHeightFraction":6,"PanelDetectionAlgorithm":2,"WhiteBackgroundTreshold":180,"BlackBackground":false,"VerticalSplit":false,"IncludePageIfNoPanelDetected":true,"InvertPages":false,"HorizontalLinesOnly":true}

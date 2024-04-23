@@ -1,0 +1,1 @@
+{"Name":"Manga (2 pages scan)","PanelReadingDirection":2,"UnSkew":true,"MinimumPanelSizeWidthFraction":7,"MinimumPanelSizeHeightFraction":10,"PanelDetectionAlgorithm":4,"WhiteBackgroundTreshold":200,"BlackBackground":false,"VerticalSplit":true,"IncludePageIfNoPanelDetected":true,"Manga":true}

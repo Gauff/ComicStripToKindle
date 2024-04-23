@@ -1,0 +1,11 @@
+{
+  "Directory": "C:\\TEMP\\BD\\",
+  "UploadOnEreader": false,
+  "SendByEmail": false,
+  "OpenDirectoryAfterConversion": true,
+  "SmtpServer": "smtp-mail.outlook.com",
+  "SmtpPort": 587,
+  "Password": "",
+  "From": "",
+  "To": ""
+}

@@ -1,0 +1,1 @@
+{"Name":"Manga NB","PanelReadingDirection":1,"UnSkew":false,"MinimumPanelSizeWidthFraction":7,"MinimumPanelSizeHeightFraction":6,"PanelDetectionAlgorithm":8,"WhiteBackgroundTreshold":50,"BlackBackground":false,"VerticalSplit":false,"IncludePageIfNoPanelDetected":false,"InvertPages":false}

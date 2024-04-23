@@ -1,0 +1,1 @@
+{"Name":"Franco-Belgian comics Vertical split (with and without case borders)","PageReadingDirection":1,"PanelReadingDirection":5,"UnSkew":true,"MinimumPanelSizeWidthFraction":8,"MinimumPanelSizeHeightFraction":8,"PanelDetectionAlgorithm":4,"WhiteBackgroundTreshold":200,"BlackBackground":false,"VerticalSplit":true,"IncludePageIfNoPanelDetected":true}
