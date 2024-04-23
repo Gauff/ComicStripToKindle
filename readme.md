@@ -19,14 +19,17 @@ This tool processes comic files (PDF, CBR, CBZ, zip archives and directories of 
 
 ## Define your e-reader profile
 ![ereader profile](https://github.com/Gauff/ComicStripToKindle/blob/master/resources/screenshots/ereaderProfile.png)
+
 Resolution, gamma, color/grayscale.
 
 ## Set up the comic profile
 ![comic profile](https://github.com/Gauff/ComicStripToKindle/blob/master/resources/screenshots/comicProfile.png)
+
 Panel detection algorithm, skew check, page split, directions, background color, panel minimum side.
  
 ## Set up the outputs
 ![output profile](https://github.com/Gauff/ComicStripToKindle/blob/master/resources/screenshots/outputProfile.png)
+
 Local directory, email, upload on ereader by USB
  
 ## Select the comics files 
@@ -39,6 +42,7 @@ Click on a file to enter preview mode
 
 ## Adjust image in real time
 ![adjust images](https://github.com/Gauff/ComicStripToKindle/blob/master/resources/screenshots/imageEnhancementProfile.png)
+
 Apply and adjust enhancement profiles in real time: automatic rotation, levels, contrast, sharpening, and JPEG quality.
 
 ## Click on "Convert to PDF" when happy with the preview
