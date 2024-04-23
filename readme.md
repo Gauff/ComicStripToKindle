@@ -6,6 +6,8 @@ The ideas:
 - Maximize panel size
 - Tap the screen to see the next panel!
 
+![screenshot](https://github.com/Gauff/ComicStripToKindle/blob/master/screenshot.png)
+
 This tool processes PDF comic files by: 
 - Extracting individual panels
 - Adjusting the panels according to your e-reader screen size
