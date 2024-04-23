@@ -34,7 +34,7 @@ Local directory, email, upload on ereader by USB
  
 ## Select the comics files 
 PDF, CBR, CBZ, and zip archives or directories
-Using 'Add Comic files', 'Add Comic Directory', or simply by drag and grop on the file list area.
+Using 'Add Comic files', 'Add Comic Directory', or simply by drag and drop on the file list area.
 
 ## Enter preview mode
 Click on a file to enter preview mode
