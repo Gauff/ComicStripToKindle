@@ -17,18 +17,18 @@ This tool processes PDF comic files by:
 
 # In a nutshell
 
-1. Define your e-reader profile
+1. Define your e-reader profile :
    Resolution, gamma, color/grayscale.
  
-2. Set up the panel extraction profile
+2. Set up the panel extraction profile :
    Panel detection algorithm, skew check, page split, directions, background color, panel minimum side.
  
-3. Set up the outputs
+3. Set up the outputs :
    Directory and email
  
 4. Select the comics PDF files
 
-5. Adjust image in preview mode 
+5. Adjust image in preview mode :
    Apply and adjust enhancement profiles in real time: automatic rotation, levels, contrast, sharpening, and JPEG quality.
 
 6. Click on "generate" when happy with the preview
