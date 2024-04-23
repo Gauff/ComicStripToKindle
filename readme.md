@@ -8,7 +8,7 @@ The ideas:
 
 ![screenshot](https://github.com/Gauff/ComicStripToKindle/blob/master/screenshot.png)
 
-This tool processes PDF comic files by: 
+This tool processes comic files (PDF, CBR, CBZ, zip archives and directories of them) by: 
 - Extracting individual panels
 - Adjusting the panels according to your e-reader screen size
 - Improve output quality
@@ -26,7 +26,7 @@ This tool processes PDF comic files by:
 3. Set up the outputs :
    Directory and email
  
-4. Select the comics PDF files
+4. Select the comics files (PDF, CBR, CBZ, and zip archives) or directories.
 
 5. Adjust image in preview mode :
    Apply and adjust enhancement profiles in real time: automatic rotation, levels, contrast, sharpening, and JPEG quality.
