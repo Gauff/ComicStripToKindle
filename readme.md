@@ -6,7 +6,9 @@ The ideas:
 - Maximize panel size
 - Tap the screen to see the next panel!
 
-This tool processes PDF comic files by: 
+![screenshot](https://github.com/Gauff/ComicStripToKindle/blob/master/screenshot.png)
+
+This tool processes comic files (PDF, CBR, CBZ, zip archives and directories of them) by: 
 - Extracting individual panels
 - Adjusting the panels according to your e-reader screen size
 - Improve output quality
@@ -15,18 +17,18 @@ This tool processes PDF comic files by:
 
 # In a nutshell
 
-1. Define your e-reader profile
+1. Define your e-reader profile :
    Resolution, gamma, color/grayscale.
  
-2. Set up the panel extraction profile
+2. Set up the panel extraction profile :
    Panel detection algorithm, skew check, page split, directions, background color, panel minimum side.
  
-3. Set up the outputs
+3. Set up the outputs :
    Directory and email
  
-4. Select the comics PDF files
+4. Select the comics files (PDF, CBR, CBZ, and zip archives) or directories.
 
-5. Adjust image in preview mode 
+5. Adjust image in preview mode :
    Apply and adjust enhancement profiles in real time: automatic rotation, levels, contrast, sharpening, and JPEG quality.
 
 6. Click on "generate" when happy with the preview
