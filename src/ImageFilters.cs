@@ -269,5 +269,19 @@ namespace ComicStripToKindle
             }
             return copy;
         }
+
+        //Soften trame patterns
+        public static void GaussianBlur(ref Bitmap image, double sigma=2.0, int size=7)
+        {
+            GaussianBlur filter = new GaussianBlur(sigma, size);
+            filter.ApplyInPlace(image);
+        }
+
+        //noise reduction
+        public static void Medianfilter(ref Bitmap image)
+        {
+            Median filter = new Median();
+            filter.ApplyInPlace(image);
+        }
     }
 }

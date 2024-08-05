@@ -43,6 +43,24 @@
             this.txtErrors = new System.Windows.Forms.TextBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageConfiguration = new System.Windows.Forms.TabPage();
+            this.panelEreader = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pbGenerateGammaScale = new System.Windows.Forms.Button();
+            this.pVolumeConected = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtDocumentDirectory = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtVolumeName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pbDeleteEreaderProfile = new System.Windows.Forms.Button();
+            this.cbEReaderProfile = new System.Windows.Forms.ComboBox();
+            this.pbSaveEreaderProfile = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.txtCorrectionGamma = new System.Windows.Forms.TextBox();
+            this.chkCorrectionGamma = new System.Windows.Forms.CheckBox();
+            this.chkGrayscal = new System.Windows.Forms.CheckBox();
             this.panelComic = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
@@ -71,46 +89,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cbComicProfile = new System.Windows.Forms.ComboBox();
             this.pbSaveComicProfile = new System.Windows.Forms.Button();
-            this.panelImageEnhancement = new System.Windows.Forms.Panel();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.pbDleteImageEnhancement = new System.Windows.Forms.Button();
-            this.label27 = new System.Windows.Forms.Label();
-            this.cbImageEnhancementProfile = new System.Windows.Forms.ComboBox();
-            this.pbSaveImageEnhancement = new System.Windows.Forms.Button();
-            this.chkGaussianSharpen = new System.Windows.Forms.CheckBox();
-            this.txtSigma = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtKernel = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtBlackLevel = new System.Windows.Forms.TextBox();
-            this.chkLevelThreshold = new System.Windows.Forms.CheckBox();
-            this.txtJpegQuality = new System.Windows.Forms.TextBox();
-            this.txtRotationAngle = new System.Windows.Forms.TextBox();
-            this.chkAutomaticContrastCorrection = new System.Windows.Forms.CheckBox();
-            this.txtWhiteLevel = new System.Windows.Forms.TextBox();
-            this.chkCorrectionSharpen = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.chkAutomaticRotation = new System.Windows.Forms.CheckBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.panelEreader = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pbGenerateGammaScale = new System.Windows.Forms.Button();
-            this.pVolumeConected = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtDocumentDirectory = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtVolumeName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pbDeleteEreaderProfile = new System.Windows.Forms.Button();
-            this.cbEReaderProfile = new System.Windows.Forms.ComboBox();
-            this.pbSaveEreaderProfile = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.txtCorrectionGamma = new System.Windows.Forms.TextBox();
-            this.chkCorrectionGamma = new System.Windows.Forms.CheckBox();
-            this.chkGrayscal = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -118,6 +96,36 @@
             this.txtResolutionWidth = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.collapsibleControlImageEnhancement = new ComicStripToKindle.Controls.CollapsibleControl();
+            this.panelImageEnhancement = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gbSharpen2 = new System.Windows.Forms.GroupBox();
+            this.chkGaussianSharpen = new System.Windows.Forms.CheckBox();
+            this.txtGaussianSharpenSigma = new System.Windows.Forms.TextBox();
+            this.chkCorrectionSharpen = new System.Windows.Forms.CheckBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtGaussianSharpenKernel = new System.Windows.Forms.TextBox();
+            this.gbDescreening = new System.Windows.Forms.GroupBox();
+            this.chkMedianFilter = new System.Windows.Forms.CheckBox();
+            this.chkGaussianBlur = new System.Windows.Forms.CheckBox();
+            this.txtGaussianBlurSigma = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txtGaussianBlurKernel = new System.Windows.Forms.TextBox();
+            this.pbDleteImageEnhancement = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.cbImageEnhancementProfile = new System.Windows.Forms.ComboBox();
+            this.pbSaveImageEnhancement = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtBlackLevel = new System.Windows.Forms.TextBox();
+            this.chkLevelThreshold = new System.Windows.Forms.CheckBox();
+            this.txtJpegQuality = new System.Windows.Forms.TextBox();
+            this.txtRotationAngle = new System.Windows.Forms.TextBox();
+            this.chkAutomaticContrastCorrection = new System.Windows.Forms.CheckBox();
+            this.txtWhiteLevel = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.chkAutomaticRotation = new System.Windows.Forms.CheckBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.panelOutput = new System.Windows.Forms.Panel();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.txtPdfFileName = new System.Windows.Forms.TextBox();
@@ -156,19 +164,21 @@
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageConfiguration.SuspendLayout();
-            this.panelComic.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox16.SuspendLayout();
-            this.groupBox15.SuspendLayout();
-            this.panelImageEnhancement.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.panelEreader.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pVolumeConected)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.panelComic.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            this.groupBox15.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panelImageEnhancement.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.gbSharpen2.SuspendLayout();
+            this.gbDescreening.SuspendLayout();
             this.panelOutput.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.panelEmailSettings.SuspendLayout();
@@ -186,7 +196,7 @@
             this.pbConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pbConvert.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pbConvert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pbConvert.Location = new System.Drawing.Point(614, 728);
+            this.pbConvert.Location = new System.Drawing.Point(614, 972);
             this.pbConvert.Name = "pbConvert";
             this.pbConvert.Size = new System.Drawing.Size(399, 23);
             this.pbConvert.TabIndex = 0;
@@ -200,7 +210,7 @@
             this.pbSelectComicFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pbSelectComicFile.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pbSelectComicFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pbSelectComicFile.Location = new System.Drawing.Point(366, 729);
+            this.pbSelectComicFile.Location = new System.Drawing.Point(366, 973);
             this.pbSelectComicFile.Name = "pbSelectComicFile";
             this.pbSelectComicFile.Size = new System.Drawing.Size(118, 23);
             this.pbSelectComicFile.TabIndex = 19;
@@ -245,7 +255,7 @@
             this.lvFiles.HideSelection = false;
             this.lvFiles.Location = new System.Drawing.Point(366, 12);
             this.lvFiles.Name = "lvFiles";
-            this.lvFiles.Size = new System.Drawing.Size(640, 711);
+            this.lvFiles.Size = new System.Drawing.Size(640, 955);
             this.lvFiles.TabIndex = 23;
             this.lvFiles.UseCompatibleStateImageBehavior = false;
             this.lvFiles.View = System.Windows.Forms.View.Details;
@@ -288,7 +298,7 @@
             this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar.ForeColor = System.Drawing.Color.Black;
-            this.progressBar.Location = new System.Drawing.Point(614, 758);
+            this.progressBar.Location = new System.Drawing.Point(614, 1002);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(399, 23);
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -305,7 +315,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(330, 673);
+            this.groupBox1.Size = new System.Drawing.Size(330, 917);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selected comic conversion errors";
@@ -320,7 +330,7 @@
             this.txtErrors.Location = new System.Drawing.Point(7, 20);
             this.txtErrors.Multiline = true;
             this.txtErrors.Name = "txtErrors";
-            this.txtErrors.Size = new System.Drawing.Size(317, 647);
+            this.txtErrors.Size = new System.Drawing.Size(317, 891);
             this.txtErrors.TabIndex = 0;
             // 
             // tabControl
@@ -333,16 +343,16 @@
             this.tabControl.Location = new System.Drawing.Point(10, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(350, 769);
+            this.tabControl.Size = new System.Drawing.Size(350, 1013);
             this.tabControl.TabIndex = 40;
             // 
             // tabPageConfiguration
             // 
             this.tabPageConfiguration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tabPageConfiguration.Controls.Add(this.panelComic);
-            this.tabPageConfiguration.Controls.Add(this.panelImageEnhancement);
             this.tabPageConfiguration.Controls.Add(this.panelEreader);
             this.tabPageConfiguration.Controls.Add(this.collapsibleControlImageEnhancement);
+            this.tabPageConfiguration.Controls.Add(this.panelImageEnhancement);
             this.tabPageConfiguration.Controls.Add(this.panelOutput);
             this.tabPageConfiguration.Controls.Add(this.collapsibleControlEmail);
             this.tabPageConfiguration.Controls.Add(this.collapsibleControlComic);
@@ -352,14 +362,223 @@
             this.tabPageConfiguration.Location = new System.Drawing.Point(4, 23);
             this.tabPageConfiguration.Name = "tabPageConfiguration";
             this.tabPageConfiguration.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageConfiguration.Size = new System.Drawing.Size(342, 742);
+            this.tabPageConfiguration.Size = new System.Drawing.Size(342, 986);
             this.tabPageConfiguration.TabIndex = 0;
             this.tabPageConfiguration.Text = "Configuration";
+            // 
+            // panelEreader
+            // 
+            this.panelEreader.Controls.Add(this.groupBox2);
+            this.panelEreader.Location = new System.Drawing.Point(42, 228);
+            this.panelEreader.Name = "panelEreader";
+            this.panelEreader.Size = new System.Drawing.Size(350, 219);
+            this.panelEreader.TabIndex = 47;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.pbGenerateGammaScale);
+            this.groupBox2.Controls.Add(this.pVolumeConected);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.txtDocumentDirectory);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.txtVolumeName);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.pbDeleteEreaderProfile);
+            this.groupBox2.Controls.Add(this.cbEReaderProfile);
+            this.groupBox2.Controls.Add(this.pbSaveEreaderProfile);
+            this.groupBox2.Controls.Add(this.groupBox5);
+            this.groupBox2.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(335, 208);
+            this.groupBox2.TabIndex = 44;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "E Ink E-Reader";
+            // 
+            // pbGenerateGammaScale
+            // 
+            this.pbGenerateGammaScale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pbGenerateGammaScale.Font = new System.Drawing.Font("Corbel", 8F);
+            this.pbGenerateGammaScale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pbGenerateGammaScale.Location = new System.Drawing.Point(271, 134);
+            this.pbGenerateGammaScale.Name = "pbGenerateGammaScale";
+            this.pbGenerateGammaScale.Size = new System.Drawing.Size(58, 66);
+            this.pbGenerateGammaScale.TabIndex = 50;
+            this.pbGenerateGammaScale.Text = "Generate Gamma Scale";
+            this.pbGenerateGammaScale.UseVisualStyleBackColor = true;
+            this.pbGenerateGammaScale.Click += new System.EventHandler(this.pbGenerateGammaScale_Click);
+            // 
+            // pVolumeConected
+            // 
+            this.pVolumeConected.Location = new System.Drawing.Point(313, 112);
+            this.pVolumeConected.Name = "pVolumeConected";
+            this.pVolumeConected.Size = new System.Drawing.Size(16, 16);
+            this.pVolumeConected.TabIndex = 48;
+            this.pVolumeConected.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(271, 113);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 14);
+            this.label11.TabIndex = 49;
+            this.label11.Text = "Status:";
+            // 
+            // txtDocumentDirectory
+            // 
+            this.txtDocumentDirectory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtDocumentDirectory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtDocumentDirectory.Location = new System.Drawing.Point(115, 178);
+            this.txtDocumentDirectory.Name = "txtDocumentDirectory";
+            this.txtDocumentDirectory.Size = new System.Drawing.Size(152, 22);
+            this.txtDocumentDirectory.TabIndex = 47;
+            this.txtDocumentDirectory.Text = "documents";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 181);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 14);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "Document Directory:";
+            // 
+            // txtVolumeName
+            // 
+            this.txtVolumeName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtVolumeName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtVolumeName.Location = new System.Drawing.Point(115, 152);
+            this.txtVolumeName.Name = "txtVolumeName";
+            this.txtVolumeName.Size = new System.Drawing.Size(152, 22);
+            this.txtVolumeName.TabIndex = 45;
+            this.txtVolumeName.Text = "Kindle";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 155);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 14);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "Volume Name:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 14);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "Profile:";
+            // 
+            // pbDeleteEreaderProfile
+            // 
+            this.pbDeleteEreaderProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pbDeleteEreaderProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pbDeleteEreaderProfile.Location = new System.Drawing.Point(271, 82);
+            this.pbDeleteEreaderProfile.Name = "pbDeleteEreaderProfile";
+            this.pbDeleteEreaderProfile.Size = new System.Drawing.Size(58, 23);
+            this.pbDeleteEreaderProfile.TabIndex = 43;
+            this.pbDeleteEreaderProfile.Text = "Delete";
+            this.pbDeleteEreaderProfile.UseVisualStyleBackColor = true;
+            this.pbDeleteEreaderProfile.Click += new System.EventHandler(this.pbDeleteEreaderProfile_Click);
+            // 
+            // cbEReaderProfile
+            // 
+            this.cbEReaderProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cbEReaderProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbEReaderProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbEReaderProfile.FormattingEnabled = true;
+            this.cbEReaderProfile.Location = new System.Drawing.Point(51, 19);
+            this.cbEReaderProfile.Name = "cbEReaderProfile";
+            this.cbEReaderProfile.Size = new System.Drawing.Size(278, 22);
+            this.cbEReaderProfile.TabIndex = 39;
+            this.cbEReaderProfile.SelectedIndexChanged += new System.EventHandler(this.cbEReaderProfile_SelectedIndexChanged);
+            // 
+            // pbSaveEreaderProfile
+            // 
+            this.pbSaveEreaderProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pbSaveEreaderProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pbSaveEreaderProfile.Location = new System.Drawing.Point(271, 53);
+            this.pbSaveEreaderProfile.Name = "pbSaveEreaderProfile";
+            this.pbSaveEreaderProfile.Size = new System.Drawing.Size(58, 23);
+            this.pbSaveEreaderProfile.TabIndex = 42;
+            this.pbSaveEreaderProfile.Text = "Save";
+            this.pbSaveEreaderProfile.UseVisualStyleBackColor = true;
+            this.pbSaveEreaderProfile.Click += new System.EventHandler(this.pbSaveEreaderProfile_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.groupBox7);
+            this.groupBox5.Controls.Add(this.groupBox3);
+            this.groupBox5.Controls.Add(this.label6);
+            this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox5.Location = new System.Drawing.Point(9, 46);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(323, 100);
+            this.groupBox5.TabIndex = 41;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = " E Ink electronic paper display characteristics";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.txtCorrectionGamma);
+            this.groupBox7.Controls.Add(this.chkCorrectionGamma);
+            this.groupBox7.Controls.Add(this.chkGrayscal);
+            this.groupBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox7.Location = new System.Drawing.Point(122, 19);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(127, 76);
+            this.groupBox7.TabIndex = 41;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Corrections";
+            // 
+            // txtCorrectionGamma
+            // 
+            this.txtCorrectionGamma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCorrectionGamma.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtCorrectionGamma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtCorrectionGamma.Location = new System.Drawing.Point(81, 21);
+            this.txtCorrectionGamma.MaxLength = 5;
+            this.txtCorrectionGamma.Name = "txtCorrectionGamma";
+            this.txtCorrectionGamma.Size = new System.Drawing.Size(40, 22);
+            this.txtCorrectionGamma.TabIndex = 36;
+            this.txtCorrectionGamma.Text = "2.0";
+            this.txtCorrectionGamma.TextChanged += new System.EventHandler(this.EreaderUpdate);
+            this.txtCorrectionGamma.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorrectionGamma_KeyPress);
+            // 
+            // chkCorrectionGamma
+            // 
+            this.chkCorrectionGamma.AutoSize = true;
+            this.chkCorrectionGamma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.chkCorrectionGamma.Location = new System.Drawing.Point(19, 23);
+            this.chkCorrectionGamma.Name = "chkCorrectionGamma";
+            this.chkCorrectionGamma.Size = new System.Drawing.Size(69, 18);
+            this.chkCorrectionGamma.TabIndex = 34;
+            this.chkCorrectionGamma.Text = "Gamma:";
+            this.chkCorrectionGamma.UseVisualStyleBackColor = false;
+            // 
+            // chkGrayscal
+            // 
+            this.chkGrayscal.AutoSize = true;
+            this.chkGrayscal.Checked = true;
+            this.chkGrayscal.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkGrayscal.Location = new System.Drawing.Point(19, 48);
+            this.chkGrayscal.Name = "chkGrayscal";
+            this.chkGrayscal.Size = new System.Drawing.Size(75, 18);
+            this.chkGrayscal.TabIndex = 42;
+            this.chkGrayscal.Text = "Grayscale";
+            this.chkGrayscal.UseVisualStyleBackColor = true;
+            this.chkGrayscal.CheckedChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
             // 
             // panelComic
             // 
             this.panelComic.Controls.Add(this.groupBox6);
-            this.panelComic.Location = new System.Drawing.Point(2, 105);
+            this.panelComic.Location = new System.Drawing.Point(6, 485);
             this.panelComic.Name = "panelComic";
             this.panelComic.Size = new System.Drawing.Size(344, 417);
             this.panelComic.TabIndex = 48;
@@ -668,484 +887,6 @@
             this.pbSaveComicProfile.UseVisualStyleBackColor = true;
             this.pbSaveComicProfile.Click += new System.EventHandler(this.pbSaveComicProfile_Click);
             // 
-            // panelImageEnhancement
-            // 
-            this.panelImageEnhancement.Controls.Add(this.groupBox4);
-            this.panelImageEnhancement.Location = new System.Drawing.Point(6, 305);
-            this.panelImageEnhancement.Name = "panelImageEnhancement";
-            this.panelImageEnhancement.Size = new System.Drawing.Size(343, 226);
-            this.panelImageEnhancement.TabIndex = 50;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.groupBox4.Controls.Add(this.pbDleteImageEnhancement);
-            this.groupBox4.Controls.Add(this.label27);
-            this.groupBox4.Controls.Add(this.cbImageEnhancementProfile);
-            this.groupBox4.Controls.Add(this.pbSaveImageEnhancement);
-            this.groupBox4.Controls.Add(this.chkGaussianSharpen);
-            this.groupBox4.Controls.Add(this.txtSigma);
-            this.groupBox4.Controls.Add(this.label21);
-            this.groupBox4.Controls.Add(this.txtKernel);
-            this.groupBox4.Controls.Add(this.label20);
-            this.groupBox4.Controls.Add(this.label19);
-            this.groupBox4.Controls.Add(this.txtBlackLevel);
-            this.groupBox4.Controls.Add(this.chkLevelThreshold);
-            this.groupBox4.Controls.Add(this.txtJpegQuality);
-            this.groupBox4.Controls.Add(this.txtRotationAngle);
-            this.groupBox4.Controls.Add(this.chkAutomaticContrastCorrection);
-            this.groupBox4.Controls.Add(this.txtWhiteLevel);
-            this.groupBox4.Controls.Add(this.chkCorrectionSharpen);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.chkAutomaticRotation);
-            this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox4.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox4.Location = new System.Drawing.Point(1, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(336, 220);
-            this.groupBox4.TabIndex = 45;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Image Enhancement && Quality";
-            // 
-            // pbDleteImageEnhancement
-            // 
-            this.pbDleteImageEnhancement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pbDleteImageEnhancement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pbDleteImageEnhancement.Location = new System.Drawing.Point(274, 84);
-            this.pbDleteImageEnhancement.Name = "pbDleteImageEnhancement";
-            this.pbDleteImageEnhancement.Size = new System.Drawing.Size(58, 23);
-            this.pbDleteImageEnhancement.TabIndex = 59;
-            this.pbDleteImageEnhancement.Text = "Delete";
-            this.pbDleteImageEnhancement.UseVisualStyleBackColor = true;
-            this.pbDleteImageEnhancement.Click += new System.EventHandler(this.pbDleteImageEnhancement_Click);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(9, 24);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(42, 14);
-            this.label27.TabIndex = 58;
-            this.label27.Text = "Profile:";
-            // 
-            // cbImageEnhancementProfile
-            // 
-            this.cbImageEnhancementProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cbImageEnhancementProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbImageEnhancementProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cbImageEnhancementProfile.FormattingEnabled = true;
-            this.cbImageEnhancementProfile.Location = new System.Drawing.Point(53, 21);
-            this.cbImageEnhancementProfile.Name = "cbImageEnhancementProfile";
-            this.cbImageEnhancementProfile.Size = new System.Drawing.Size(278, 22);
-            this.cbImageEnhancementProfile.TabIndex = 56;
-            this.cbImageEnhancementProfile.SelectedIndexChanged += new System.EventHandler(this.cbImageEnhancementProfile_SelectedIndexChanged);
-            // 
-            // pbSaveImageEnhancement
-            // 
-            this.pbSaveImageEnhancement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pbSaveImageEnhancement.Location = new System.Drawing.Point(274, 55);
-            this.pbSaveImageEnhancement.Name = "pbSaveImageEnhancement";
-            this.pbSaveImageEnhancement.Size = new System.Drawing.Size(58, 23);
-            this.pbSaveImageEnhancement.TabIndex = 57;
-            this.pbSaveImageEnhancement.Text = "Save";
-            this.pbSaveImageEnhancement.UseVisualStyleBackColor = true;
-            this.pbSaveImageEnhancement.Click += new System.EventHandler(this.pbSaveImageEnhancement_Click);
-            // 
-            // chkGaussianSharpen
-            // 
-            this.chkGaussianSharpen.AutoSize = true;
-            this.chkGaussianSharpen.Location = new System.Drawing.Point(6, 138);
-            this.chkGaussianSharpen.Name = "chkGaussianSharpen";
-            this.chkGaussianSharpen.Size = new System.Drawing.Size(117, 18);
-            this.chkGaussianSharpen.TabIndex = 55;
-            this.chkGaussianSharpen.Text = "Gaussian Sharpen:";
-            this.chkGaussianSharpen.UseVisualStyleBackColor = true;
-            this.chkGaussianSharpen.CheckedChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
-            // 
-            // txtSigma
-            // 
-            this.txtSigma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSigma.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSigma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtSigma.Location = new System.Drawing.Point(235, 135);
-            this.txtSigma.Name = "txtSigma";
-            this.txtSigma.Size = new System.Drawing.Size(27, 21);
-            this.txtSigma.TabIndex = 53;
-            this.txtSigma.Text = "1";
-            this.txtSigma.TextChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
-            this.txtSigma.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSigma_KeyPress);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label21.Location = new System.Drawing.Point(194, 139);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(42, 14);
-            this.label21.TabIndex = 54;
-            this.label21.Text = "Sigma:";
-            // 
-            // txtKernel
-            // 
-            this.txtKernel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtKernel.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKernel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtKernel.Location = new System.Drawing.Point(165, 135);
-            this.txtKernel.Name = "txtKernel";
-            this.txtKernel.Size = new System.Drawing.Size(27, 21);
-            this.txtKernel.TabIndex = 51;
-            this.txtKernel.Text = "3";
-            this.txtKernel.TextChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label20.Location = new System.Drawing.Point(124, 139);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(42, 14);
-            this.label20.TabIndex = 52;
-            this.label20.Text = "Kernel:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label19.Location = new System.Drawing.Point(97, 89);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(17, 14);
-            this.label19.TabIndex = 50;
-            this.label19.Text = "->";
-            // 
-            // txtBlackLevel
-            // 
-            this.txtBlackLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtBlackLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtBlackLevel.Location = new System.Drawing.Point(64, 86);
-            this.txtBlackLevel.Name = "txtBlackLevel";
-            this.txtBlackLevel.Size = new System.Drawing.Size(31, 22);
-            this.txtBlackLevel.TabIndex = 49;
-            this.txtBlackLevel.Text = "10";
-            this.txtBlackLevel.TextChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
-            // 
-            // chkLevelThreshold
-            // 
-            this.chkLevelThreshold.AutoSize = true;
-            this.chkLevelThreshold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.chkLevelThreshold.Location = new System.Drawing.Point(6, 88);
-            this.chkLevelThreshold.Name = "chkLevelThreshold";
-            this.chkLevelThreshold.Size = new System.Drawing.Size(61, 18);
-            this.chkLevelThreshold.TabIndex = 48;
-            this.chkLevelThreshold.Text = "Levels:";
-            this.chkLevelThreshold.UseVisualStyleBackColor = false;
-            this.chkLevelThreshold.CheckedChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
-            // 
-            // txtJpegQuality
-            // 
-            this.txtJpegQuality.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtJpegQuality.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJpegQuality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtJpegQuality.Location = new System.Drawing.Point(79, 186);
-            this.txtJpegQuality.Name = "txtJpegQuality";
-            this.txtJpegQuality.Size = new System.Drawing.Size(27, 21);
-            this.txtJpegQuality.TabIndex = 43;
-            this.txtJpegQuality.Text = "70";
-            this.txtJpegQuality.TextChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
-            // 
-            // txtRotationAngle
-            // 
-            this.txtRotationAngle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtRotationAngle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtRotationAngle.Location = new System.Drawing.Point(89, 59);
-            this.txtRotationAngle.Name = "txtRotationAngle";
-            this.txtRotationAngle.Size = new System.Drawing.Size(32, 22);
-            this.txtRotationAngle.TabIndex = 45;
-            this.txtRotationAngle.Text = "90";
-            this.txtRotationAngle.TextChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
-            // 
-            // chkAutomaticContrastCorrection
-            // 
-            this.chkAutomaticContrastCorrection.Checked = true;
-            this.chkAutomaticContrastCorrection.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAutomaticContrastCorrection.Location = new System.Drawing.Point(6, 110);
-            this.chkAutomaticContrastCorrection.Name = "chkAutomaticContrastCorrection";
-            this.chkAutomaticContrastCorrection.Size = new System.Drawing.Size(101, 24);
-            this.chkAutomaticContrastCorrection.TabIndex = 46;
-            this.chkAutomaticContrastCorrection.Text = "Auto Contrast";
-            this.chkAutomaticContrastCorrection.UseVisualStyleBackColor = true;
-            this.chkAutomaticContrastCorrection.CheckedChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
-            // 
-            // txtWhiteLevel
-            // 
-            this.txtWhiteLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtWhiteLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtWhiteLevel.Location = new System.Drawing.Point(115, 86);
-            this.txtWhiteLevel.Name = "txtWhiteLevel";
-            this.txtWhiteLevel.Size = new System.Drawing.Size(31, 22);
-            this.txtWhiteLevel.TabIndex = 47;
-            this.txtWhiteLevel.Text = "230";
-            this.txtWhiteLevel.TextChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
-            // 
-            // chkCorrectionSharpen
-            // 
-            this.chkCorrectionSharpen.AutoSize = true;
-            this.chkCorrectionSharpen.Location = new System.Drawing.Point(6, 162);
-            this.chkCorrectionSharpen.Name = "chkCorrectionSharpen";
-            this.chkCorrectionSharpen.Size = new System.Drawing.Size(67, 18);
-            this.chkCorrectionSharpen.TabIndex = 37;
-            this.chkCorrectionSharpen.Text = "Sharpen";
-            this.chkCorrectionSharpen.UseVisualStyleBackColor = true;
-            this.chkCorrectionSharpen.CheckedChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(118, 59);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(12, 14);
-            this.label4.TabIndex = 44;
-            this.label4.Text = "°";
-            // 
-            // chkAutomaticRotation
-            // 
-            this.chkAutomaticRotation.Checked = true;
-            this.chkAutomaticRotation.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAutomaticRotation.Location = new System.Drawing.Point(6, 58);
-            this.chkAutomaticRotation.Name = "chkAutomaticRotation";
-            this.chkAutomaticRotation.Size = new System.Drawing.Size(98, 24);
-            this.chkAutomaticRotation.TabIndex = 43;
-            this.chkAutomaticRotation.Text = "Auto Rotate";
-            this.chkAutomaticRotation.UseVisualStyleBackColor = true;
-            this.chkAutomaticRotation.CheckedChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label16.Location = new System.Drawing.Point(7, 188);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(73, 14);
-            this.label16.TabIndex = 45;
-            this.label16.Text = "JPEG quality:";
-            // 
-            // panelEreader
-            // 
-            this.panelEreader.Controls.Add(this.groupBox2);
-            this.panelEreader.Location = new System.Drawing.Point(88, 85);
-            this.panelEreader.Name = "panelEreader";
-            this.panelEreader.Size = new System.Drawing.Size(350, 214);
-            this.panelEreader.TabIndex = 47;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.pbGenerateGammaScale);
-            this.groupBox2.Controls.Add(this.pVolumeConected);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.txtDocumentDirectory);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.txtVolumeName);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.pbDeleteEreaderProfile);
-            this.groupBox2.Controls.Add(this.cbEReaderProfile);
-            this.groupBox2.Controls.Add(this.pbSaveEreaderProfile);
-            this.groupBox2.Controls.Add(this.groupBox5);
-            this.groupBox2.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(335, 208);
-            this.groupBox2.TabIndex = 44;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "E Ink E-Reader";
-            // 
-            // pbGenerateGammaScale
-            // 
-            this.pbGenerateGammaScale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pbGenerateGammaScale.Font = new System.Drawing.Font("Corbel", 8F);
-            this.pbGenerateGammaScale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pbGenerateGammaScale.Location = new System.Drawing.Point(271, 134);
-            this.pbGenerateGammaScale.Name = "pbGenerateGammaScale";
-            this.pbGenerateGammaScale.Size = new System.Drawing.Size(58, 66);
-            this.pbGenerateGammaScale.TabIndex = 50;
-            this.pbGenerateGammaScale.Text = "Generate Gamma Scale";
-            this.pbGenerateGammaScale.UseVisualStyleBackColor = true;
-            this.pbGenerateGammaScale.Click += new System.EventHandler(this.pbGenerateGammaScale_Click);
-            // 
-            // pVolumeConected
-            // 
-            this.pVolumeConected.Location = new System.Drawing.Point(313, 112);
-            this.pVolumeConected.Name = "pVolumeConected";
-            this.pVolumeConected.Size = new System.Drawing.Size(16, 16);
-            this.pVolumeConected.TabIndex = 48;
-            this.pVolumeConected.TabStop = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(271, 113);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(42, 14);
-            this.label11.TabIndex = 49;
-            this.label11.Text = "Status:";
-            // 
-            // txtDocumentDirectory
-            // 
-            this.txtDocumentDirectory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtDocumentDirectory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtDocumentDirectory.Location = new System.Drawing.Point(115, 178);
-            this.txtDocumentDirectory.Name = "txtDocumentDirectory";
-            this.txtDocumentDirectory.Size = new System.Drawing.Size(152, 22);
-            this.txtDocumentDirectory.TabIndex = 47;
-            this.txtDocumentDirectory.Text = "documents";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 181);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 14);
-            this.label3.TabIndex = 46;
-            this.label3.Text = "Document Directory:";
-            // 
-            // txtVolumeName
-            // 
-            this.txtVolumeName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtVolumeName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtVolumeName.Location = new System.Drawing.Point(115, 152);
-            this.txtVolumeName.Name = "txtVolumeName";
-            this.txtVolumeName.Size = new System.Drawing.Size(152, 22);
-            this.txtVolumeName.TabIndex = 45;
-            this.txtVolumeName.Text = "Kindle";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 155);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 14);
-            this.label2.TabIndex = 44;
-            this.label2.Text = "Volume Name:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 14);
-            this.label5.TabIndex = 40;
-            this.label5.Text = "Profile:";
-            // 
-            // pbDeleteEreaderProfile
-            // 
-            this.pbDeleteEreaderProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pbDeleteEreaderProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pbDeleteEreaderProfile.Location = new System.Drawing.Point(271, 82);
-            this.pbDeleteEreaderProfile.Name = "pbDeleteEreaderProfile";
-            this.pbDeleteEreaderProfile.Size = new System.Drawing.Size(58, 23);
-            this.pbDeleteEreaderProfile.TabIndex = 43;
-            this.pbDeleteEreaderProfile.Text = "Delete";
-            this.pbDeleteEreaderProfile.UseVisualStyleBackColor = true;
-            this.pbDeleteEreaderProfile.Click += new System.EventHandler(this.pbDeleteEreaderProfile_Click);
-            // 
-            // cbEReaderProfile
-            // 
-            this.cbEReaderProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cbEReaderProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbEReaderProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cbEReaderProfile.FormattingEnabled = true;
-            this.cbEReaderProfile.Location = new System.Drawing.Point(51, 19);
-            this.cbEReaderProfile.Name = "cbEReaderProfile";
-            this.cbEReaderProfile.Size = new System.Drawing.Size(278, 22);
-            this.cbEReaderProfile.TabIndex = 39;
-            this.cbEReaderProfile.SelectedIndexChanged += new System.EventHandler(this.cbEReaderProfile_SelectedIndexChanged);
-            // 
-            // pbSaveEreaderProfile
-            // 
-            this.pbSaveEreaderProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pbSaveEreaderProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pbSaveEreaderProfile.Location = new System.Drawing.Point(271, 53);
-            this.pbSaveEreaderProfile.Name = "pbSaveEreaderProfile";
-            this.pbSaveEreaderProfile.Size = new System.Drawing.Size(58, 23);
-            this.pbSaveEreaderProfile.TabIndex = 42;
-            this.pbSaveEreaderProfile.Text = "Save";
-            this.pbSaveEreaderProfile.UseVisualStyleBackColor = true;
-            this.pbSaveEreaderProfile.Click += new System.EventHandler(this.pbSaveEreaderProfile_Click);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.groupBox7);
-            this.groupBox5.Controls.Add(this.groupBox3);
-            this.groupBox5.Controls.Add(this.label6);
-            this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox5.Location = new System.Drawing.Point(9, 46);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(258, 100);
-            this.groupBox5.TabIndex = 41;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = " E Ink electronic paper display characteristics";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.txtCorrectionGamma);
-            this.groupBox7.Controls.Add(this.chkCorrectionGamma);
-            this.groupBox7.Controls.Add(this.chkGrayscal);
-            this.groupBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox7.Location = new System.Drawing.Point(122, 19);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(127, 76);
-            this.groupBox7.TabIndex = 41;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Corrections";
-            // 
-            // txtCorrectionGamma
-            // 
-            this.txtCorrectionGamma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtCorrectionGamma.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtCorrectionGamma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtCorrectionGamma.Location = new System.Drawing.Point(81, 21);
-            this.txtCorrectionGamma.MaxLength = 5;
-            this.txtCorrectionGamma.Name = "txtCorrectionGamma";
-            this.txtCorrectionGamma.Size = new System.Drawing.Size(40, 22);
-            this.txtCorrectionGamma.TabIndex = 36;
-            this.txtCorrectionGamma.Text = "2.0";
-            this.txtCorrectionGamma.TextChanged += new System.EventHandler(this.EreaderUpdate);
-            this.txtCorrectionGamma.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorrectionGamma_KeyPress);
-            // 
-            // chkCorrectionGamma
-            // 
-            this.chkCorrectionGamma.AutoSize = true;
-            this.chkCorrectionGamma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.chkCorrectionGamma.Location = new System.Drawing.Point(19, 23);
-            this.chkCorrectionGamma.Name = "chkCorrectionGamma";
-            this.chkCorrectionGamma.Size = new System.Drawing.Size(69, 18);
-            this.chkCorrectionGamma.TabIndex = 34;
-            this.chkCorrectionGamma.Text = "Gamma:";
-            this.chkCorrectionGamma.UseVisualStyleBackColor = false;
-            // 
-            // chkGrayscal
-            // 
-            this.chkGrayscal.AutoSize = true;
-            this.chkGrayscal.Checked = true;
-            this.chkGrayscal.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkGrayscal.Location = new System.Drawing.Point(19, 48);
-            this.chkGrayscal.Name = "chkGrayscal";
-            this.chkGrayscal.Size = new System.Drawing.Size(75, 18);
-            this.chkGrayscal.TabIndex = 42;
-            this.chkGrayscal.Text = "Grayscale";
-            this.chkGrayscal.UseVisualStyleBackColor = true;
-            this.chkGrayscal.CheckedChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label8);
@@ -1219,10 +960,371 @@
             this.collapsibleControlImageEnhancement.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.collapsibleControlImageEnhancement.Click += new System.EventHandler(this.collapsibleControlImageEnhancement_Click);
             // 
+            // panelImageEnhancement
+            // 
+            this.panelImageEnhancement.Controls.Add(this.groupBox4);
+            this.panelImageEnhancement.Location = new System.Drawing.Point(6, 542);
+            this.panelImageEnhancement.Name = "panelImageEnhancement";
+            this.panelImageEnhancement.Size = new System.Drawing.Size(343, 345);
+            this.panelImageEnhancement.TabIndex = 50;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.groupBox4.Controls.Add(this.gbSharpen2);
+            this.groupBox4.Controls.Add(this.gbDescreening);
+            this.groupBox4.Controls.Add(this.pbDleteImageEnhancement);
+            this.groupBox4.Controls.Add(this.label27);
+            this.groupBox4.Controls.Add(this.cbImageEnhancementProfile);
+            this.groupBox4.Controls.Add(this.pbSaveImageEnhancement);
+            this.groupBox4.Controls.Add(this.label19);
+            this.groupBox4.Controls.Add(this.txtBlackLevel);
+            this.groupBox4.Controls.Add(this.chkLevelThreshold);
+            this.groupBox4.Controls.Add(this.txtJpegQuality);
+            this.groupBox4.Controls.Add(this.txtRotationAngle);
+            this.groupBox4.Controls.Add(this.chkAutomaticContrastCorrection);
+            this.groupBox4.Controls.Add(this.txtWhiteLevel);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.chkAutomaticRotation);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox4.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox4.Location = new System.Drawing.Point(4, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(336, 336);
+            this.groupBox4.TabIndex = 45;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Image Enhancement && Quality";
+            // 
+            // gbSharpen2
+            // 
+            this.gbSharpen2.Controls.Add(this.chkGaussianSharpen);
+            this.gbSharpen2.Controls.Add(this.txtGaussianSharpenSigma);
+            this.gbSharpen2.Controls.Add(this.chkCorrectionSharpen);
+            this.gbSharpen2.Controls.Add(this.label21);
+            this.gbSharpen2.Controls.Add(this.label20);
+            this.gbSharpen2.Controls.Add(this.txtGaussianSharpenKernel);
+            this.gbSharpen2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.gbSharpen2.Location = new System.Drawing.Point(6, 219);
+            this.gbSharpen2.Name = "gbSharpen2";
+            this.gbSharpen2.Size = new System.Drawing.Size(324, 74);
+            this.gbSharpen2.TabIndex = 39;
+            this.gbSharpen2.TabStop = false;
+            this.gbSharpen2.Text = "Sharpen";
+            // 
+            // chkGaussianSharpen
+            // 
+            this.chkGaussianSharpen.AutoSize = true;
+            this.chkGaussianSharpen.Location = new System.Drawing.Point(6, 20);
+            this.chkGaussianSharpen.Name = "chkGaussianSharpen";
+            this.chkGaussianSharpen.Size = new System.Drawing.Size(76, 18);
+            this.chkGaussianSharpen.TabIndex = 55;
+            this.chkGaussianSharpen.Text = "Gaussian :";
+            this.chkGaussianSharpen.UseVisualStyleBackColor = true;
+            this.chkGaussianSharpen.CheckedChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
+            // 
+            // txtGaussianSharpenSigma
+            // 
+            this.txtGaussianSharpenSigma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtGaussianSharpenSigma.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGaussianSharpenSigma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtGaussianSharpenSigma.Location = new System.Drawing.Point(221, 18);
+            this.txtGaussianSharpenSigma.Name = "txtGaussianSharpenSigma";
+            this.txtGaussianSharpenSigma.Size = new System.Drawing.Size(27, 21);
+            this.txtGaussianSharpenSigma.TabIndex = 53;
+            this.txtGaussianSharpenSigma.Text = "1";
+            this.txtGaussianSharpenSigma.TextChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
+            this.txtGaussianSharpenSigma.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSigma_KeyPress);
+            // 
+            // chkCorrectionSharpen
+            // 
+            this.chkCorrectionSharpen.AutoSize = true;
+            this.chkCorrectionSharpen.Location = new System.Drawing.Point(6, 47);
+            this.chkCorrectionSharpen.Name = "chkCorrectionSharpen";
+            this.chkCorrectionSharpen.Size = new System.Drawing.Size(64, 18);
+            this.chkCorrectionSharpen.TabIndex = 37;
+            this.chkCorrectionSharpen.Text = "Regular";
+            this.chkCorrectionSharpen.UseVisualStyleBackColor = true;
+            this.chkCorrectionSharpen.CheckedChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label21.Location = new System.Drawing.Point(181, 20);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(42, 14);
+            this.label21.TabIndex = 54;
+            this.label21.Text = "Sigma:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label20.Location = new System.Drawing.Point(106, 20);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(42, 14);
+            this.label20.TabIndex = 52;
+            this.label20.Text = "Kernel:";
+            // 
+            // txtGaussianSharpenKernel
+            // 
+            this.txtGaussianSharpenKernel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtGaussianSharpenKernel.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGaussianSharpenKernel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtGaussianSharpenKernel.Location = new System.Drawing.Point(148, 17);
+            this.txtGaussianSharpenKernel.Name = "txtGaussianSharpenKernel";
+            this.txtGaussianSharpenKernel.Size = new System.Drawing.Size(27, 21);
+            this.txtGaussianSharpenKernel.TabIndex = 51;
+            this.txtGaussianSharpenKernel.Text = "3";
+            this.txtGaussianSharpenKernel.TextChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
+            // 
+            // gbDescreening
+            // 
+            this.gbDescreening.Controls.Add(this.chkMedianFilter);
+            this.gbDescreening.Controls.Add(this.chkGaussianBlur);
+            this.gbDescreening.Controls.Add(this.txtGaussianBlurSigma);
+            this.gbDescreening.Controls.Add(this.label29);
+            this.gbDescreening.Controls.Add(this.label30);
+            this.gbDescreening.Controls.Add(this.txtGaussianBlurKernel);
+            this.gbDescreening.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.gbDescreening.Location = new System.Drawing.Point(6, 137);
+            this.gbDescreening.Name = "gbDescreening";
+            this.gbDescreening.Size = new System.Drawing.Size(324, 76);
+            this.gbDescreening.TabIndex = 38;
+            this.gbDescreening.TabStop = false;
+            this.gbDescreening.Text = "Descreening";
+            // 
+            // chkMedianFilter
+            // 
+            this.chkMedianFilter.AutoSize = true;
+            this.chkMedianFilter.Location = new System.Drawing.Point(7, 45);
+            this.chkMedianFilter.Name = "chkMedianFilter";
+            this.chkMedianFilter.Size = new System.Drawing.Size(88, 18);
+            this.chkMedianFilter.TabIndex = 56;
+            this.chkMedianFilter.Text = "Median filter";
+            this.chkMedianFilter.UseVisualStyleBackColor = true;
+            // 
+            // chkGaussianBlur
+            // 
+            this.chkGaussianBlur.AutoSize = true;
+            this.chkGaussianBlur.Location = new System.Drawing.Point(7, 21);
+            this.chkGaussianBlur.Name = "chkGaussianBlur";
+            this.chkGaussianBlur.Size = new System.Drawing.Size(97, 18);
+            this.chkGaussianBlur.TabIndex = 60;
+            this.chkGaussianBlur.Text = "Gaussian blur :";
+            this.chkGaussianBlur.UseVisualStyleBackColor = true;
+            // 
+            // txtGaussianBlurSigma
+            // 
+            this.txtGaussianBlurSigma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtGaussianBlurSigma.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGaussianBlurSigma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtGaussianBlurSigma.Location = new System.Drawing.Point(221, 20);
+            this.txtGaussianBlurSigma.Name = "txtGaussianBlurSigma";
+            this.txtGaussianBlurSigma.Size = new System.Drawing.Size(27, 21);
+            this.txtGaussianBlurSigma.TabIndex = 58;
+            this.txtGaussianBlurSigma.Text = "1";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label29.Location = new System.Drawing.Point(181, 22);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(42, 14);
+            this.label29.TabIndex = 59;
+            this.label29.Text = "Sigma:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label30.Location = new System.Drawing.Point(106, 22);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(42, 14);
+            this.label30.TabIndex = 57;
+            this.label30.Text = "Kernel:";
+            // 
+            // txtGaussianBlurKernel
+            // 
+            this.txtGaussianBlurKernel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtGaussianBlurKernel.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGaussianBlurKernel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtGaussianBlurKernel.Location = new System.Drawing.Point(148, 19);
+            this.txtGaussianBlurKernel.Name = "txtGaussianBlurKernel";
+            this.txtGaussianBlurKernel.Size = new System.Drawing.Size(27, 21);
+            this.txtGaussianBlurKernel.TabIndex = 56;
+            this.txtGaussianBlurKernel.Text = "3";
+            // 
+            // pbDleteImageEnhancement
+            // 
+            this.pbDleteImageEnhancement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pbDleteImageEnhancement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pbDleteImageEnhancement.Location = new System.Drawing.Point(274, 84);
+            this.pbDleteImageEnhancement.Name = "pbDleteImageEnhancement";
+            this.pbDleteImageEnhancement.Size = new System.Drawing.Size(58, 23);
+            this.pbDleteImageEnhancement.TabIndex = 59;
+            this.pbDleteImageEnhancement.Text = "Delete";
+            this.pbDleteImageEnhancement.UseVisualStyleBackColor = true;
+            this.pbDleteImageEnhancement.Click += new System.EventHandler(this.pbDleteImageEnhancement_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(9, 24);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(42, 14);
+            this.label27.TabIndex = 58;
+            this.label27.Text = "Profile:";
+            // 
+            // cbImageEnhancementProfile
+            // 
+            this.cbImageEnhancementProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cbImageEnhancementProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbImageEnhancementProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbImageEnhancementProfile.FormattingEnabled = true;
+            this.cbImageEnhancementProfile.Location = new System.Drawing.Point(53, 21);
+            this.cbImageEnhancementProfile.Name = "cbImageEnhancementProfile";
+            this.cbImageEnhancementProfile.Size = new System.Drawing.Size(278, 22);
+            this.cbImageEnhancementProfile.TabIndex = 56;
+            this.cbImageEnhancementProfile.SelectedIndexChanged += new System.EventHandler(this.cbImageEnhancementProfile_SelectedIndexChanged);
+            // 
+            // pbSaveImageEnhancement
+            // 
+            this.pbSaveImageEnhancement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pbSaveImageEnhancement.Location = new System.Drawing.Point(274, 55);
+            this.pbSaveImageEnhancement.Name = "pbSaveImageEnhancement";
+            this.pbSaveImageEnhancement.Size = new System.Drawing.Size(58, 23);
+            this.pbSaveImageEnhancement.TabIndex = 57;
+            this.pbSaveImageEnhancement.Text = "Save";
+            this.pbSaveImageEnhancement.UseVisualStyleBackColor = true;
+            this.pbSaveImageEnhancement.Click += new System.EventHandler(this.pbSaveImageEnhancement_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label19.Location = new System.Drawing.Point(97, 89);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(17, 14);
+            this.label19.TabIndex = 50;
+            this.label19.Text = "->";
+            // 
+            // txtBlackLevel
+            // 
+            this.txtBlackLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBlackLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtBlackLevel.Location = new System.Drawing.Point(64, 86);
+            this.txtBlackLevel.Name = "txtBlackLevel";
+            this.txtBlackLevel.Size = new System.Drawing.Size(31, 22);
+            this.txtBlackLevel.TabIndex = 49;
+            this.txtBlackLevel.Text = "10";
+            this.txtBlackLevel.TextChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
+            // 
+            // chkLevelThreshold
+            // 
+            this.chkLevelThreshold.AutoSize = true;
+            this.chkLevelThreshold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.chkLevelThreshold.Location = new System.Drawing.Point(6, 88);
+            this.chkLevelThreshold.Name = "chkLevelThreshold";
+            this.chkLevelThreshold.Size = new System.Drawing.Size(61, 18);
+            this.chkLevelThreshold.TabIndex = 48;
+            this.chkLevelThreshold.Text = "Levels:";
+            this.chkLevelThreshold.UseVisualStyleBackColor = false;
+            this.chkLevelThreshold.CheckedChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
+            // 
+            // txtJpegQuality
+            // 
+            this.txtJpegQuality.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtJpegQuality.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJpegQuality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtJpegQuality.Location = new System.Drawing.Point(78, 299);
+            this.txtJpegQuality.Name = "txtJpegQuality";
+            this.txtJpegQuality.Size = new System.Drawing.Size(27, 21);
+            this.txtJpegQuality.TabIndex = 43;
+            this.txtJpegQuality.Text = "70";
+            this.txtJpegQuality.TextChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
+            // 
+            // txtRotationAngle
+            // 
+            this.txtRotationAngle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtRotationAngle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtRotationAngle.Location = new System.Drawing.Point(89, 59);
+            this.txtRotationAngle.Name = "txtRotationAngle";
+            this.txtRotationAngle.Size = new System.Drawing.Size(32, 22);
+            this.txtRotationAngle.TabIndex = 45;
+            this.txtRotationAngle.Text = "90";
+            this.txtRotationAngle.TextChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
+            // 
+            // chkAutomaticContrastCorrection
+            // 
+            this.chkAutomaticContrastCorrection.Checked = true;
+            this.chkAutomaticContrastCorrection.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAutomaticContrastCorrection.Location = new System.Drawing.Point(6, 110);
+            this.chkAutomaticContrastCorrection.Name = "chkAutomaticContrastCorrection";
+            this.chkAutomaticContrastCorrection.Size = new System.Drawing.Size(101, 24);
+            this.chkAutomaticContrastCorrection.TabIndex = 46;
+            this.chkAutomaticContrastCorrection.Text = "Auto Contrast";
+            this.chkAutomaticContrastCorrection.UseVisualStyleBackColor = true;
+            this.chkAutomaticContrastCorrection.CheckedChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
+            // 
+            // txtWhiteLevel
+            // 
+            this.txtWhiteLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtWhiteLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtWhiteLevel.Location = new System.Drawing.Point(115, 86);
+            this.txtWhiteLevel.Name = "txtWhiteLevel";
+            this.txtWhiteLevel.Size = new System.Drawing.Size(31, 22);
+            this.txtWhiteLevel.TabIndex = 47;
+            this.txtWhiteLevel.Text = "230";
+            this.txtWhiteLevel.TextChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(118, 59);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(12, 14);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "°";
+            // 
+            // chkAutomaticRotation
+            // 
+            this.chkAutomaticRotation.Checked = true;
+            this.chkAutomaticRotation.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAutomaticRotation.Location = new System.Drawing.Point(6, 58);
+            this.chkAutomaticRotation.Name = "chkAutomaticRotation";
+            this.chkAutomaticRotation.Size = new System.Drawing.Size(98, 24);
+            this.chkAutomaticRotation.TabIndex = 43;
+            this.chkAutomaticRotation.Text = "Auto Rotate";
+            this.chkAutomaticRotation.UseVisualStyleBackColor = true;
+            this.chkAutomaticRotation.CheckedChanged += new System.EventHandler(this.UI_SaveImageEnhancementProfile);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label16.Location = new System.Drawing.Point(6, 301);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(73, 14);
+            this.label16.TabIndex = 45;
+            this.label16.Text = "JPEG quality:";
+            // 
             // panelOutput
             // 
             this.panelOutput.Controls.Add(this.groupBox8);
-            this.panelOutput.Location = new System.Drawing.Point(6, 540);
+            this.panelOutput.Location = new System.Drawing.Point(3, 783);
             this.panelOutput.Name = "panelOutput";
             this.panelOutput.Size = new System.Drawing.Size(330, 196);
             this.panelOutput.TabIndex = 51;
@@ -1241,7 +1343,7 @@
             this.groupBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox8.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox8.Location = new System.Drawing.Point(1, 3);
+            this.groupBox8.Location = new System.Drawing.Point(3, 3);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(327, 190);
             this.groupBox8.TabIndex = 46;
@@ -1374,7 +1476,7 @@
             // panelEmailSettings
             // 
             this.panelEmailSettings.Controls.Add(this.groupBox9);
-            this.panelEmailSettings.Location = new System.Drawing.Point(20, 120);
+            this.panelEmailSettings.Location = new System.Drawing.Point(3, 102);
             this.panelEmailSettings.Name = "panelEmailSettings";
             this.panelEmailSettings.Size = new System.Drawing.Size(329, 120);
             this.panelEmailSettings.TabIndex = 48;
@@ -1512,7 +1614,7 @@
             this.tabPageConversionErrors.Location = new System.Drawing.Point(4, 23);
             this.tabPageConversionErrors.Name = "tabPageConversionErrors";
             this.tabPageConversionErrors.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageConversionErrors.Size = new System.Drawing.Size(342, 742);
+            this.tabPageConversionErrors.Size = new System.Drawing.Size(342, 986);
             this.tabPageConversionErrors.TabIndex = 1;
             this.tabPageConversionErrors.Text = "Conversion errors";
             // 
@@ -1522,7 +1624,7 @@
             this.pbClearComicFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pbClearComicFiles.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pbClearComicFiles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pbClearComicFiles.Location = new System.Drawing.Point(490, 729);
+            this.pbClearComicFiles.Location = new System.Drawing.Point(490, 973);
             this.pbClearComicFiles.Name = "pbClearComicFiles";
             this.pbClearComicFiles.Size = new System.Drawing.Size(118, 23);
             this.pbClearComicFiles.TabIndex = 41;
@@ -1544,7 +1646,7 @@
             this.pPreview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.pPreview.Location = new System.Drawing.Point(366, 200);
             this.pPreview.Name = "pPreview";
-            this.pPreview.Size = new System.Drawing.Size(640, 521);
+            this.pPreview.Size = new System.Drawing.Size(640, 765);
             this.pPreview.TabIndex = 42;
             this.pPreview.SizeChanged += new System.EventHandler(this.pPreview_SizeChanged);
             this.pPreview.Resize += new System.EventHandler(this.pPreview_Resize);
@@ -1553,7 +1655,7 @@
             // 
             this.lConvertedSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lConvertedSize.AutoSize = true;
-            this.lConvertedSize.Location = new System.Drawing.Point(594, 502);
+            this.lConvertedSize.Location = new System.Drawing.Point(594, 746);
             this.lConvertedSize.Name = "lConvertedSize";
             this.lConvertedSize.Size = new System.Drawing.Size(13, 13);
             this.lConvertedSize.TabIndex = 47;
@@ -1563,7 +1665,7 @@
             // 
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(519, 502);
+            this.label18.Location = new System.Drawing.Point(519, 746);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(69, 13);
             this.label18.TabIndex = 45;
@@ -1574,7 +1676,7 @@
             // 
             this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 502);
+            this.label17.Location = new System.Drawing.Point(3, 746);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(42, 13);
             this.label17.TabIndex = 44;
@@ -1586,7 +1688,7 @@
             this.pHidePreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pHidePreview.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pHidePreview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pHidePreview.Location = new System.Drawing.Point(260, 493);
+            this.pHidePreview.Location = new System.Drawing.Point(260, 737);
             this.pHidePreview.Name = "pHidePreview";
             this.pHidePreview.Size = new System.Drawing.Size(118, 23);
             this.pHidePreview.TabIndex = 43;
@@ -1618,7 +1720,7 @@
             this.pbAddComicDirectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pbAddComicDirectory.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pbAddComicDirectory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pbAddComicDirectory.Location = new System.Drawing.Point(366, 758);
+            this.pbAddComicDirectory.Location = new System.Drawing.Point(366, 1002);
             this.pbAddComicDirectory.Name = "pbAddComicDirectory";
             this.pbAddComicDirectory.Size = new System.Drawing.Size(118, 23);
             this.pbAddComicDirectory.TabIndex = 43;
@@ -1632,7 +1734,7 @@
             this.pbTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pbTest.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pbTest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pbTest.Location = new System.Drawing.Point(490, 758);
+            this.pbTest.Location = new System.Drawing.Point(490, 1002);
             this.pbTest.Name = "pbTest";
             this.pbTest.Size = new System.Drawing.Size(118, 23);
             this.pbTest.TabIndex = 44;
@@ -1645,7 +1747,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1018, 787);
+            this.ClientSize = new System.Drawing.Size(1018, 1031);
             this.Controls.Add(this.pbTest);
             this.Controls.Add(this.pbAddComicDirectory);
             this.Controls.Add(this.pPreview);
@@ -1664,6 +1766,14 @@
             this.groupBox1.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabPageConfiguration.ResumeLayout(false);
+            this.panelEreader.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pVolumeConected)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.panelComic.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
@@ -1673,19 +1783,15 @@
             this.groupBox16.PerformLayout();
             this.groupBox15.ResumeLayout(false);
             this.groupBox15.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.panelImageEnhancement.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.panelEreader.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pVolumeConected)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbSharpen2.ResumeLayout(false);
+            this.gbSharpen2.PerformLayout();
+            this.gbDescreening.ResumeLayout(false);
+            this.gbDescreening.PerformLayout();
             this.panelOutput.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
@@ -1783,9 +1889,9 @@
         private System.Windows.Forms.CheckBox chkLevelThreshold;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button pbAddComicDirectory;
-        private System.Windows.Forms.TextBox txtSigma;
+        private System.Windows.Forms.TextBox txtGaussianSharpenSigma;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txtKernel;
+        private System.Windows.Forms.TextBox txtGaussianSharpenKernel;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.CheckBox chkGaussianSharpen;
         private System.Windows.Forms.Button pbGenerateGammaScale;
@@ -1828,6 +1934,14 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Button pbConcatenate;
         private System.Windows.Forms.CheckBox cbHorizontalOnly;
+        private System.Windows.Forms.GroupBox gbSharpen2;
+        private System.Windows.Forms.GroupBox gbDescreening;
+        private System.Windows.Forms.CheckBox chkMedianFilter;
+        private System.Windows.Forms.CheckBox chkGaussianBlur;
+        private System.Windows.Forms.TextBox txtGaussianBlurSigma;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox txtGaussianBlurKernel;
     }
 }
 

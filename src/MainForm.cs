@@ -600,8 +600,12 @@ namespace ComicStripToKindle
             txtBlackLevel.Text = profile.BlackLevel.ToString();
 
             chkGaussianSharpen.Checked = profile.GaussianSharpen;
-            txtSigma.Text = profile.Sigma.ToString();
-            txtKernel.Text = profile.Kernel.ToString();
+            txtGaussianSharpenSigma.Text = profile.Sigma.ToString();
+            txtGaussianSharpenKernel.Text = profile.Kernel.ToString();
+
+            chkGaussianBlur.Checked = profile.GaussianBlur;
+            txtGaussianBlurSigma.Text = profile.GaussianBlurSigma.ToString();
+            txtGaussianBlurKernel.Text = profile.Kernel.ToString();
         }
         ImageEnhancementProfile UI_GetImageEnhancementProfile()
         {
@@ -616,9 +620,12 @@ namespace ComicStripToKindle
                 WhiteLevel = !string.IsNullOrEmpty(txtWhiteLevel.Text) ? Convert.ToInt32(txtWhiteLevel.Text) : 255,
                 BlackLevel = !string.IsNullOrEmpty(txtBlackLevel.Text) ? Convert.ToInt32(txtBlackLevel.Text) : 0,
                 GaussianSharpen = chkGaussianSharpen.Checked,
-                Sigma = !string.IsNullOrEmpty(txtSigma.Text) ? Convert.ToSingle(txtSigma.Text) : 1,
-                Kernel = !string.IsNullOrEmpty(txtKernel.Text) ? Convert.ToInt32(txtKernel.Text) : 3,
-                Name = cbImageEnhancementProfile.Text
+                Sigma = !string.IsNullOrEmpty(txtGaussianSharpenSigma.Text) ? Convert.ToSingle(txtGaussianSharpenSigma.Text) : 1,
+                Kernel = !string.IsNullOrEmpty(txtGaussianSharpenKernel.Text) ? Convert.ToInt32(txtGaussianSharpenKernel.Text) : 3,
+                Name = cbImageEnhancementProfile.Text,
+                GaussianBlur = chkGaussianBlur.Checked,
+                GaussianBlurSigma = !string.IsNullOrEmpty(txtGaussianBlurSigma.Text) ? Convert.ToSingle(txtGaussianBlurSigma.Text) : 1,
+                GaussianBlurKernel = !string.IsNullOrEmpty(txtGaussianBlurKernel.Text) ? Convert.ToInt32(txtGaussianBlurKernel.Text) : 3
             };
         }
 

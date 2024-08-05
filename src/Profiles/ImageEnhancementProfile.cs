@@ -20,6 +20,10 @@
         public int WhiteLevel { get; set; }
         public int BlackLevel { get; set; }
 
+        public bool GaussianBlur { get; set; }
+        public double GaussianBlurSigma { get; set; }
+        public int GaussianBlurKernel { get; set; }
+
         public override string ToString()
         {
             return Name;
