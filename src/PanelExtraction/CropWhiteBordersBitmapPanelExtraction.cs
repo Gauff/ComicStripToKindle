@@ -43,6 +43,8 @@ namespace ComicStripToKindle.PanelExtraction
                 .Where(y => !y.Key)
                 .ToList();
 
+            int sizeTresholdPercentage = 2;
+
             var topY = 0;
             var bottomY = 0;
 
@@ -54,6 +56,7 @@ namespace ComicStripToKindle.PanelExtraction
             if (null != lastNotEmptyLineGroup)
                 bottomY = lastNotEmptyLineGroup.ToList().Max(x => x.Key);
 
+            var yGroupSizeThreshold = (bottomY - topY) / 100 * sizeTresholdPercentage;
 
             var blobColumnGroups = ByWhiteLinesDetectionBitmapPanelExtraction.AreEmptyColumns2(bitmap)
                 .GroupAdjacent(x => x.Value)
@@ -71,7 +74,18 @@ namespace ComicStripToKindle.PanelExtraction
             if (null != lastNotEmptyColumnGroup)
                 maxX = lastNotEmptyColumnGroup.ToList().Max(x => x.Key);
 
-            return new Rectangle(minX, topY, maxX - minX, bottomY - topY);
+            var xGroupSizeThreshold = (maxX - minX) / 100 * sizeTresholdPercentage;
+
+            //Filter out groups smaller than 2% height and smaller than 2% wide
+            blobColumnGroups = blobColumnGroups.Where(group => group.Count() > xGroupSizeThreshold).ToList();
+            blobsLineGroups = blobsLineGroups.Where(group => group.Count() > yGroupSizeThreshold).ToList();
+
+            return new Rectangle(
+                minX,
+                topY,
+                maxX - minX,
+                bottomY - topY
+            );
         }
     }
 }
