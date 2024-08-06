@@ -219,6 +219,8 @@ namespace ComicStripToKindle
                 {
                     LevelThreshold(ref image);
                     ContrastStretch(ref image);
+                    GaussianBlur(ref image);
+                    BlurMedianFilter(ref image);
                     GaussianSharpen(ref image);
                     Sharpen(ref image);
                 }
@@ -241,6 +243,8 @@ namespace ComicStripToKindle
             img = ConvertToGrayscale(img);
             LevelThreshold(ref img);
             ContrastStretch(ref img);
+            GaussianBlur(ref img);
+            BlurMedianFilter(ref img);
             GaussianSharpen(ref img);
             Sharpen(ref img);
             img = ApplyJpegCompression(img, out sizeInBytes);
@@ -304,6 +308,18 @@ namespace ComicStripToKindle
         private Bitmap ApplyJpegCompression(Bitmap image, out long sizeInBytes)
         {
             return image.ApplyToJpegCompression(ImageEnhancementProfile.JpegQuality, out sizeInBytes);
+        }
+
+        private void GaussianBlur(ref Bitmap image)
+        {
+            if(ImageEnhancementProfile.GaussianBlur)
+                ImageFilters.GaussianBlur(ref image, ImageEnhancementProfile.GaussianBlurSigma, ImageEnhancementProfile.GaussianBlurKernel);
+        }
+
+        private void BlurMedianFilter(ref Bitmap image)
+        {
+            if (ImageEnhancementProfile.BlurMedianFilter)
+                ImageFilters.Medianfilter(ref image);
         }
     }
 }

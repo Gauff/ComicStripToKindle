@@ -24,6 +24,8 @@
         public double GaussianBlurSigma { get; set; }
         public int GaussianBlurKernel { get; set; }
 
+        public bool BlurMedianFilter { get; set; }
+
         public override string ToString()
         {
             return Name;

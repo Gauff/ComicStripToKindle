@@ -605,28 +605,113 @@ namespace ComicStripToKindle
 
             chkGaussianBlur.Checked = profile.GaussianBlur;
             txtGaussianBlurSigma.Text = profile.GaussianBlurSigma.ToString();
-            txtGaussianBlurKernel.Text = profile.Kernel.ToString();
+            txtGaussianBlurKernel.Text = profile.GaussianBlurKernel.ToString();
+
+            chkMedianFilter.Checked = profile.BlurMedianFilter;
         }
         ImageEnhancementProfile UI_GetImageEnhancementProfile()
         {
-            return new ImageEnhancementProfile
+            ImageEnhancementProfile profile = new ImageEnhancementProfile();
+
+            // Set default values for all properties
+            profile.AutomaticRotation = chkAutomaticRotation.Checked;
+            profile.AutomaticContrastCorrection = chkAutomaticContrastCorrection.Checked;
+            profile.Sharpen = chkCorrectionSharpen.Checked;
+            profile.RotationAngle = 90f;
+            profile.JpegQuality = 1;
+            profile.LevelThreshold = chkLevelThreshold.Checked;
+            profile.WhiteLevel = 255;
+            profile.BlackLevel = 0;
+            profile.GaussianSharpen = chkGaussianSharpen.Checked;
+            profile.Sigma = 1f;
+            profile.Kernel = 3;
+            profile.Name = cbImageEnhancementProfile.Text;
+            profile.GaussianBlur = chkGaussianBlur.Checked;
+            profile.GaussianBlurSigma = 1f;
+            profile.GaussianBlurKernel = 3;
+            profile.BlurMedianFilter = chkMedianFilter.Checked;
+
+            try
             {
-                AutomaticRotation = chkAutomaticRotation.Checked,
-                AutomaticContrastCorrection = chkAutomaticContrastCorrection.Checked,
-                Sharpen = chkCorrectionSharpen.Checked,
-                RotationAngle = !string.IsNullOrEmpty(txtRotationAngle.Text) ? Convert.ToSingle(txtRotationAngle.Text) : 90,
-                JpegQuality = !string.IsNullOrEmpty(txtJpegQuality.Text) ? Convert.ToInt32(txtJpegQuality.Text) : 1,
-                LevelThreshold = chkLevelThreshold.Checked,
-                WhiteLevel = !string.IsNullOrEmpty(txtWhiteLevel.Text) ? Convert.ToInt32(txtWhiteLevel.Text) : 255,
-                BlackLevel = !string.IsNullOrEmpty(txtBlackLevel.Text) ? Convert.ToInt32(txtBlackLevel.Text) : 0,
-                GaussianSharpen = chkGaussianSharpen.Checked,
-                Sigma = !string.IsNullOrEmpty(txtGaussianSharpenSigma.Text) ? Convert.ToSingle(txtGaussianSharpenSigma.Text) : 1,
-                Kernel = !string.IsNullOrEmpty(txtGaussianSharpenKernel.Text) ? Convert.ToInt32(txtGaussianSharpenKernel.Text) : 3,
-                Name = cbImageEnhancementProfile.Text,
-                GaussianBlur = chkGaussianBlur.Checked,
-                GaussianBlurSigma = !string.IsNullOrEmpty(txtGaussianBlurSigma.Text) ? Convert.ToSingle(txtGaussianBlurSigma.Text) : 1,
-                GaussianBlurKernel = !string.IsNullOrEmpty(txtGaussianBlurKernel.Text) ? Convert.ToInt32(txtGaussianBlurKernel.Text) : 3
-            };
+                if (!string.IsNullOrEmpty(txtRotationAngle.Text))
+                    profile.RotationAngle = Convert.ToSingle(txtRotationAngle.Text);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("An error occurred while converting Rotation Angle: " + ex.Message);
+            }
+
+            try
+            {
+                if (!string.IsNullOrEmpty(txtJpegQuality.Text))
+                    profile.JpegQuality = Convert.ToInt32(txtJpegQuality.Text);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("An error occurred while converting Jpeg Quality: " + ex.Message);
+            }
+
+            try
+            {
+                if (!string.IsNullOrEmpty(txtWhiteLevel.Text))
+                    profile.WhiteLevel = Convert.ToInt32(txtWhiteLevel.Text);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("An error occurred while converting White Level: " + ex.Message);
+            }
+
+            try
+            {
+                if (!string.IsNullOrEmpty(txtBlackLevel.Text))
+                    profile.BlackLevel = Convert.ToInt32(txtBlackLevel.Text);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("An error occurred while converting Black Level: " + ex.Message);
+            }
+
+            try
+            {
+                if (!string.IsNullOrEmpty(txtGaussianSharpenSigma.Text))
+                    profile.Sigma = Convert.ToSingle(txtGaussianSharpenSigma.Text);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("An error occurred while converting Gaussian Sharpen Sigma: " + ex.Message);
+            }
+
+            try
+            {
+                if (!string.IsNullOrEmpty(txtGaussianSharpenKernel.Text))
+                    profile.Kernel = Convert.ToInt32(txtGaussianSharpenKernel.Text);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("An error occurred while converting Gaussian Sharpen Kernel: " + ex.Message);
+            }
+
+            try
+            {
+                if (!string.IsNullOrEmpty(txtGaussianBlurSigma.Text))
+                    profile.GaussianBlurSigma = Convert.ToSingle(txtGaussianBlurSigma.Text);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("An error occurred while converting Gaussian Blur Sigma: " + ex.Message);
+            }
+
+            try
+            {
+                if (!string.IsNullOrEmpty(txtGaussianBlurKernel.Text))
+                    profile.GaussianBlurKernel = Convert.ToInt32(txtGaussianBlurKernel.Text);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("An error occurred while converting Gaussian Blur Kernel: " + ex.Message);
+            }
+
+            return profile;
         }
 
         void UI_ApplyEreaderProfile(ElectronicReaderProfile profile)
@@ -1223,13 +1308,24 @@ namespace ComicStripToKindle
             ElectronicReaderProfile electronicReaderProfile,
             ImageEnhancementProfile imageEnhancementProfile)
         {
+            pOriginal.Image.ApplyToJpegCompression(99, out long originalJpegSize);
+            double originalImageSize = (double)originalJpegSize / 1024;
+            lOriginalSize.Text = $"{originalImageSize.ToString("####.##")} KB";
+
+            lPreview.Text = "Generating...";
+
+            Application.DoEvents();
+
             var panelExtractor = new PanelExtractor(electronicReaderProfile, null, imageEnhancementProfile);
 
             picturePreview.Image = panelExtractor.EnhancePanelImagePreview(previewPanel, out long sizeInBytes);
 
+            lPreview.Text = "Preview Size: ";
             var imageSize = (double)sizeInBytes / 1024;
 
-            lConvertedSize.Text = $"{imageSize.ToString("####.##")} KB";
+            var reductionPercentage = 100 - (imageSize / originalImageSize * 100);
+
+            lConvertedSize.Text = $"{imageSize.ToString("####.##")} KB. Reduction: {reductionPercentage.ToString("###.##")} %";
         }
 
         private void pHidePreview_Click(object sender, EventArgs e)
