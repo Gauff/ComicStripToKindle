@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
@@ -47,6 +48,12 @@ namespace ComicStripToKindle
             var fi = new FileInfo(filePath);
 
             return Path.Combine(fi.Directory.ToString(), $"{fi.Name.Remove(fi.Name.Length - fi.Extension.Length)}{textToAppend}{fi.Extension}");
+        }
+
+        public static bool IsHiddenDirectory(string path)
+        {
+            var directories = path.TrimEnd('/').Split('/');
+            return directories.Any(dir => dir.StartsWith("."));
         }
     }
 }

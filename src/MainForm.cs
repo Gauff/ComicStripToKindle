@@ -26,6 +26,7 @@ namespace ComicStripToKindle
     using AForge.Imaging;
     using Controls;
     using System.Configuration;
+    using System.Net.NetworkInformation;
 
     public partial class MainForm : Form
     {
@@ -309,17 +310,65 @@ namespace ComicStripToKindle
 
         void UI_SetEReaderStatus()
         {
-            Task.Factory.StartNew(new Action(() =>
+            if (chkUseKindleLocalDrive.Checked)
             {
-                EReaderDriveInfo = GetEreaderDriveInfo();
+                pHostAvailable.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Error];
 
-                if (null == EReaderDriveInfo)
-                    pVolumeConected.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Error];
-                else
-                    pVolumeConected.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Done];
+                Task.Factory.StartNew(new Action(() =>
+                {
+                    EReaderDriveInfo = GetEreaderDriveInfo();
 
-                collapsibleControlEreader.Image = pVolumeConected.Image;
-            }));
+                    if (null == EReaderDriveInfo)
+                        pVolumeConected.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Error];
+                    else
+                        pVolumeConected.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Done];
+
+                    collapsibleControlEreader.Image = pVolumeConected.Image;
+                }));
+            }
+
+            if (chkUseScp.Checked)
+            {
+                pVolumeConected.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Error];
+
+                Task.Factory.StartNew(new Action(() =>
+                {
+                    bool hostAvailable = !string.IsNullOrEmpty(txtScpHost.Text) 
+                        ? Network.IsHostAvailable(txtScpHost.Text)
+                        : false;
+
+                    if (hostAvailable)
+                        pHostAvailable.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Done];
+                    else
+                        pHostAvailable.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Error];
+
+                    collapsibleControlEreader.Image = pHostAvailable.Image;
+
+                    if (hostAvailable)
+                    {
+                        List<string> directories = Scp.ListDirectoryTree(
+                            txtScpHost.Text, 
+                            txtScpUserName.Text, 
+                            txtScpPrivateKeyFile.Text, 
+                            txtScpRemotePath.Text, 
+                            3);
+
+                        cbScpDirectoryList.BeginInvoke(
+                            new Action<List<string>>(UI_SetEreaderScpDirectoryList), 
+                            directories);
+                    }
+                }));
+            }
+        }
+
+        void UI_SetEreaderScpDirectoryList(List<string> directoryList)
+        {
+            List<string> visibleDirectories = directoryList.Where(d => !FileSystemUtilities.IsHiddenDirectory(d)).ToList();
+
+            cbScpDirectoryList.BeginUpdate();
+            cbScpDirectoryList.Items.Clear();
+            cbScpDirectoryList.Items.AddRange(visibleDirectories.ToArray());
+            cbScpDirectoryList.EndUpdate();
         }
         #endregion
 
@@ -724,8 +773,15 @@ namespace ComicStripToKindle
 
             chkGrayscal.Checked = profile.Grayscale;
 
+            chkUseKindleLocalDrive.Checked = profile.UseKindleCopy;
             txtVolumeName.Text = profile.VolumeName;
             txtDocumentDirectory.Text = profile.DocumentDirectory;
+
+            chkUseScp.Checked = profile.UseScpCopy;
+            txtScpHost.Text = profile.ScpHost;
+            txtScpUserName.Text = profile.ScpUserName;
+            txtScpPrivateKeyFile.Text = profile.ScpPrivateKeyfilePath;
+            txtScpRemotePath.Text = profile.ScpRemotePath;
         }
         ElectronicReaderProfile UI_GetEreaderProfile()
         {
@@ -740,8 +796,15 @@ namespace ComicStripToKindle
 
                 Name = cbEReaderProfile.Text,
 
+                UseKindleCopy = chkUseKindleLocalDrive.Checked,
                 VolumeName = txtVolumeName.Text,
-                DocumentDirectory = txtDocumentDirectory.Text
+                DocumentDirectory = txtDocumentDirectory.Text,
+
+                UseScpCopy = chkUseScp.Checked,
+                ScpHost = txtScpHost.Text,
+                ScpUserName = txtScpUserName.Text,
+                ScpPrivateKeyfilePath = txtScpPrivateKeyFile.Text,
+                ScpRemotePath = txtScpRemotePath.Text,
             };
         }
 
@@ -1165,34 +1228,58 @@ namespace ComicStripToKindle
 
         void CopyToEreader(OutputProfile profile, string convertedKindlePdfFilePath, string sourceFilePath)
         {
-            if (!profile.UploadOnEreader || EReaderDriveInfo == null)
+            if (!profile.UploadOnEreader)
             {
                 return;
             }
 
-            try
+            if (chkUseKindleLocalDrive.Checked && EReaderDriveInfo != null)
             {
-                var fi = new FileInfo(convertedKindlePdfFilePath);
+                try
+                {
+                    var fi = new FileInfo(convertedKindlePdfFilePath);
 
-                var targetDirectory = Path.Combine(EReaderDriveInfo.Name, CurrentElectronicReaderProfile.DocumentDirectory);
+                    var targetDirectory = Path.Combine(EReaderDriveInfo.Name, CurrentElectronicReaderProfile.DocumentDirectory);
 
-                if (!Directory.Exists(targetDirectory))
-                    Directory.CreateDirectory(targetDirectory);
+                    if (!Directory.Exists(targetDirectory))
+                        Directory.CreateDirectory(targetDirectory);
 
-                var targetPath = Path.Combine(EReaderDriveInfo.Name, CurrentElectronicReaderProfile.DocumentDirectory, fi.Name);
+                    var targetPath = Path.Combine(EReaderDriveInfo.Name, CurrentElectronicReaderProfile.DocumentDirectory, fi.Name);
 
-                if (File.Exists(targetPath))
-                    File.Delete(targetPath);
+                    if (File.Exists(targetPath))
+                        File.Delete(targetPath);
 
-                File.Copy(convertedKindlePdfFilePath, targetPath, true);
+                    File.Copy(convertedKindlePdfFilePath, targetPath, true);
 
-                CopyToEreaderResult(sourceFilePath, true);
+                    CopyToEreaderResult(sourceFilePath, true);
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                    CopyToEreaderResult(sourceFilePath, false);
+                }
             }
-            catch (Exception e)
+
+            if(chkUseScp.Checked && Network.IsHostAvailable(txtScpHost.Text))
             {
-                Debug.WriteLine(e);
-                CopyToEreaderResult(sourceFilePath, false);
+                try
+                {
+                    var fi = new FileInfo(convertedKindlePdfFilePath);
+
+                    Scp.UploadFileToDirectory(
+                        txtScpHost.Text,
+                        txtScpUserName.Text,
+                        txtScpPrivateKeyFile.Text,
+                        fi.FullName,
+                        txtScpRemotePath.Text);
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                    CopyToEreaderResult(sourceFilePath, false);
+                }
             }
+
         }
         void SendEmail(OutputProfile profile, string convertedKindlePdfFilePath, string sourceFilePath)
         {
@@ -1644,6 +1731,14 @@ namespace ComicStripToKindle
                 }
             }
             return false;
+        }
+
+        private void cbScpDirectoryList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbScpDirectoryList.SelectedItem == null)
+                return;
+
+            txtScpRemotePath.Text = cbScpDirectoryList.SelectedItem.ToString();
         }
     }
 }
