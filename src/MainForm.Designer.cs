@@ -111,9 +111,10 @@
             this.txtResolutionHeight = new System.Windows.Forms.TextBox();
             this.txtResolutionWidth = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.collapsibleControlImageEnhancement = new ComicStripToKindle.Controls.CollapsibleControl();
             this.panelImageEnhancement = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.pictureBoxOriginalHistogram = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPreviewHistogram = new System.Windows.Forms.PictureBox();
             this.gbSharpen2 = new System.Windows.Forms.GroupBox();
             this.chkGaussianSharpen = new System.Windows.Forms.CheckBox();
             this.txtGaussianSharpenSigma = new System.Windows.Forms.TextBox();
@@ -144,16 +145,15 @@
             this.label16 = new System.Windows.Forms.Label();
             this.panelOutput = new System.Windows.Forms.Panel();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.txtPdfFileName = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.pbConcatenate = new System.Windows.Forms.Button();
-            this.chkSendByEmail = new System.Windows.Forms.CheckBox();
             this.chkOpenDirectoryAfterConversion = new System.Windows.Forms.CheckBox();
-            this.chkCopyToEreader = new System.Windows.Forms.CheckBox();
             this.pbSelectOutputDirectory = new System.Windows.Forms.Button();
-            this.collapsibleControlEmail = new ComicStripToKindle.Controls.CollapsibleControl();
-            this.collapsibleControlComic = new ComicStripToKindle.Controls.CollapsibleControl();
-            this.collapsibleControlEreader = new ComicStripToKindle.Controls.CollapsibleControl();
+            this.chkSendByEmail = new System.Windows.Forms.CheckBox();
+            this.chkCopyToEreader = new System.Windows.Forms.CheckBox();
             this.panelEmailSettings = new System.Windows.Forms.Panel();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.cbSmtpPort = new System.Windows.Forms.ComboBox();
@@ -178,8 +178,11 @@
             this.picturePreview = new System.Windows.Forms.PictureBox();
             this.pbAddComicDirectory = new System.Windows.Forms.Button();
             this.pbTest = new System.Windows.Forms.Button();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.collapsibleControlImageEnhancement = new ComicStripToKindle.Controls.CollapsibleControl();
+            this.collapsibleControlEmail = new ComicStripToKindle.Controls.CollapsibleControl();
+            this.collapsibleControlComic = new ComicStripToKindle.Controls.CollapsibleControl();
+            this.collapsibleControlEreader = new ComicStripToKindle.Controls.CollapsibleControl();
+            this.pbCancel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageConfiguration.SuspendLayout();
@@ -199,18 +202,20 @@
             this.groupBox3.SuspendLayout();
             this.panelImageEnhancement.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOriginalHistogram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreviewHistogram)).BeginInit();
             this.gbSharpen2.SuspendLayout();
             this.gbDescreening.SuspendLayout();
             this.panelOutput.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.panelEmailSettings.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.tabPageConversionErrors.SuspendLayout();
             this.pPreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pOriginal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePreview)).BeginInit();
-            this.groupBox11.SuspendLayout();
-            this.groupBox12.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbConvert
@@ -220,9 +225,9 @@
             this.pbConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pbConvert.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pbConvert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pbConvert.Location = new System.Drawing.Point(614, 972);
+            this.pbConvert.Location = new System.Drawing.Point(725, 972);
             this.pbConvert.Name = "pbConvert";
-            this.pbConvert.Size = new System.Drawing.Size(399, 23);
+            this.pbConvert.Size = new System.Drawing.Size(288, 23);
             this.pbConvert.TabIndex = 0;
             this.pbConvert.Text = "Convert to PDF";
             this.pbConvert.UseVisualStyleBackColor = true;
@@ -1145,25 +1150,12 @@
             this.label6.TabIndex = 39;
             this.label6.Text = "Gamma correction:";
             // 
-            // collapsibleControlImageEnhancement
-            // 
-            this.collapsibleControlImageEnhancement.CollapsibleInterval = 5;
-            this.collapsibleControlImageEnhancement.DisplayText = "Image Enhancement";
-            this.collapsibleControlImageEnhancement.Image = null;
-            this.collapsibleControlImageEnhancement.Location = new System.Drawing.Point(3, 77);
-            this.collapsibleControlImageEnhancement.LowerPanel = null;
-            this.collapsibleControlImageEnhancement.Name = "collapsibleControlImageEnhancement";
-            this.collapsibleControlImageEnhancement.Size = new System.Drawing.Size(336, 22);
-            this.collapsibleControlImageEnhancement.TabIndex = 52;
-            this.collapsibleControlImageEnhancement.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.collapsibleControlImageEnhancement.Click += new System.EventHandler(this.collapsibleControlImageEnhancement_Click);
-            // 
             // panelImageEnhancement
             // 
             this.panelImageEnhancement.Controls.Add(this.groupBox4);
-            this.panelImageEnhancement.Location = new System.Drawing.Point(47, 253);
+            this.panelImageEnhancement.Location = new System.Drawing.Point(2, 224);
             this.panelImageEnhancement.Name = "panelImageEnhancement";
-            this.panelImageEnhancement.Size = new System.Drawing.Size(343, 345);
+            this.panelImageEnhancement.Size = new System.Drawing.Size(343, 484);
             this.panelImageEnhancement.TabIndex = 50;
             // 
             // groupBox4
@@ -1172,6 +1164,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.groupBox4.Controls.Add(this.pictureBoxOriginalHistogram);
+            this.groupBox4.Controls.Add(this.pictureBoxPreviewHistogram);
             this.groupBox4.Controls.Add(this.gbSharpen2);
             this.groupBox4.Controls.Add(this.gbDescreening);
             this.groupBox4.Controls.Add(this.pbDleteImageEnhancement);
@@ -1193,10 +1187,28 @@
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox4.Location = new System.Drawing.Point(4, 6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(336, 336);
+            this.groupBox4.Size = new System.Drawing.Size(336, 475);
             this.groupBox4.TabIndex = 45;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Image Enhancement && Quality";
+            // 
+            // pictureBoxOriginalHistogram
+            // 
+            this.pictureBoxOriginalHistogram.Location = new System.Drawing.Point(14, 326);
+            this.pictureBoxOriginalHistogram.Name = "pictureBoxOriginalHistogram";
+            this.pictureBoxOriginalHistogram.Size = new System.Drawing.Size(134, 143);
+            this.pictureBoxOriginalHistogram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxOriginalHistogram.TabIndex = 61;
+            this.pictureBoxOriginalHistogram.TabStop = false;
+            // 
+            // pictureBoxPreviewHistogram
+            // 
+            this.pictureBoxPreviewHistogram.Location = new System.Drawing.Point(174, 326);
+            this.pictureBoxPreviewHistogram.Name = "pictureBoxPreviewHistogram";
+            this.pictureBoxPreviewHistogram.Size = new System.Drawing.Size(134, 143);
+            this.pictureBoxPreviewHistogram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPreviewHistogram.TabIndex = 60;
+            this.pictureBoxPreviewHistogram.TabStop = false;
             // 
             // gbSharpen2
             // 
@@ -1377,7 +1389,7 @@
             this.pbDleteImageEnhancement.TabIndex = 59;
             this.pbDleteImageEnhancement.Text = "Delete";
             this.pbDleteImageEnhancement.UseVisualStyleBackColor = true;
-            this.pbDleteImageEnhancement.Click += new System.EventHandler(this.pbDleteImageEnhancement_Click);
+            this.pbDleteImageEnhancement.Click += new System.EventHandler(this.pbDeleteImageEnhancement_Click);
             // 
             // label27
             // 
@@ -1533,7 +1545,6 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.groupBox12);
             this.groupBox8.Controls.Add(this.groupBox11);
             this.groupBox8.Controls.Add(this.chkSendByEmail);
             this.groupBox8.Controls.Add(this.chkCopyToEreader);
@@ -1547,13 +1558,41 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Output";
             // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.groupBox12);
+            this.groupBox11.Controls.Add(this.label1);
+            this.groupBox11.Controls.Add(this.txtPdfDirectory);
+            this.groupBox11.Controls.Add(this.chkOpenDirectoryAfterConversion);
+            this.groupBox11.Controls.Add(this.pbSelectOutputDirectory);
+            this.groupBox11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox11.Location = new System.Drawing.Point(6, 18);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(315, 164);
+            this.groupBox11.TabIndex = 51;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Local working directory";
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.txtPdfFileName);
+            this.groupBox12.Controls.Add(this.label28);
+            this.groupBox12.Controls.Add(this.pbConcatenate);
+            this.groupBox12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox12.Location = new System.Drawing.Point(6, 74);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(303, 78);
+            this.groupBox12.TabIndex = 52;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Pdf concatenation";
+            // 
             // txtPdfFileName
             // 
             this.txtPdfFileName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtPdfFileName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtPdfFileName.Location = new System.Drawing.Point(61, 21);
+            this.txtPdfFileName.Location = new System.Drawing.Point(83, 21);
             this.txtPdfFileName.Name = "txtPdfFileName";
-            this.txtPdfFileName.Size = new System.Drawing.Size(251, 22);
+            this.txtPdfFileName.Size = new System.Drawing.Size(214, 22);
             this.txtPdfFileName.TabIndex = 50;
             // 
             // label28
@@ -1570,7 +1609,7 @@
             this.pbConcatenate.AutoEllipsis = true;
             this.pbConcatenate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pbConcatenate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pbConcatenate.Location = new System.Drawing.Point(223, 45);
+            this.pbConcatenate.Location = new System.Drawing.Point(209, 45);
             this.pbConcatenate.Name = "pbConcatenate";
             this.pbConcatenate.Size = new System.Drawing.Size(88, 27);
             this.pbConcatenate.TabIndex = 48;
@@ -1578,19 +1617,6 @@
             this.pbConcatenate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.pbConcatenate.UseVisualStyleBackColor = true;
             this.pbConcatenate.Click += new System.EventHandler(this.pbConcatenate_Click);
-            // 
-            // chkSendByEmail
-            // 
-            this.chkSendByEmail.AutoSize = true;
-            this.chkSendByEmail.Checked = true;
-            this.chkSendByEmail.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkSendByEmail.Location = new System.Drawing.Point(6, 126);
-            this.chkSendByEmail.Name = "chkSendByEmail";
-            this.chkSendByEmail.Size = new System.Drawing.Size(95, 18);
-            this.chkSendByEmail.TabIndex = 45;
-            this.chkSendByEmail.Text = "Send by email";
-            this.chkSendByEmail.UseVisualStyleBackColor = true;
-            this.chkSendByEmail.CheckedChanged += new System.EventHandler(this.SaveOutputProfile);
             // 
             // chkOpenDirectoryAfterConversion
             // 
@@ -1605,19 +1631,6 @@
             this.chkOpenDirectoryAfterConversion.UseVisualStyleBackColor = true;
             this.chkOpenDirectoryAfterConversion.CheckedChanged += new System.EventHandler(this.SaveOutputProfile);
             // 
-            // chkCopyToEreader
-            // 
-            this.chkCopyToEreader.AutoSize = true;
-            this.chkCopyToEreader.Checked = true;
-            this.chkCopyToEreader.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkCopyToEreader.Location = new System.Drawing.Point(6, 102);
-            this.chkCopyToEreader.Name = "chkCopyToEreader";
-            this.chkCopyToEreader.Size = new System.Drawing.Size(123, 18);
-            this.chkCopyToEreader.TabIndex = 44;
-            this.chkCopyToEreader.Text = "Upload on E-Reader";
-            this.chkCopyToEreader.UseVisualStyleBackColor = true;
-            this.chkCopyToEreader.CheckedChanged += new System.EventHandler(this.SaveOutputProfile);
-            // 
             // pbSelectOutputDirectory
             // 
             this.pbSelectOutputDirectory.AutoEllipsis = true;
@@ -1631,44 +1644,31 @@
             this.pbSelectOutputDirectory.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.pbSelectOutputDirectory.UseVisualStyleBackColor = true;
             // 
-            // collapsibleControlEmail
+            // chkSendByEmail
             // 
-            this.collapsibleControlEmail.CollapsibleInterval = 5;
-            this.collapsibleControlEmail.DisplayText = "Email settings";
-            this.collapsibleControlEmail.Image = null;
-            this.collapsibleControlEmail.Location = new System.Drawing.Point(3, 52);
-            this.collapsibleControlEmail.LowerPanel = null;
-            this.collapsibleControlEmail.Name = "collapsibleControlEmail";
-            this.collapsibleControlEmail.Size = new System.Drawing.Size(336, 20);
-            this.collapsibleControlEmail.TabIndex = 49;
-            this.collapsibleControlEmail.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.collapsibleControlEmail.Click += new System.EventHandler(this.collapsibleControlEmail_Click);
+            this.chkSendByEmail.AutoSize = true;
+            this.chkSendByEmail.Checked = true;
+            this.chkSendByEmail.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkSendByEmail.Location = new System.Drawing.Point(6, 211);
+            this.chkSendByEmail.Name = "chkSendByEmail";
+            this.chkSendByEmail.Size = new System.Drawing.Size(95, 18);
+            this.chkSendByEmail.TabIndex = 45;
+            this.chkSendByEmail.Text = "Send by email";
+            this.chkSendByEmail.UseVisualStyleBackColor = true;
+            this.chkSendByEmail.CheckedChanged += new System.EventHandler(this.SaveOutputProfile);
             // 
-            // collapsibleControlComic
+            // chkCopyToEreader
             // 
-            this.collapsibleControlComic.CollapsibleInterval = 5;
-            this.collapsibleControlComic.DisplayText = "---";
-            this.collapsibleControlComic.Image = null;
-            this.collapsibleControlComic.Location = new System.Drawing.Point(3, 29);
-            this.collapsibleControlComic.LowerPanel = null;
-            this.collapsibleControlComic.Name = "collapsibleControlComic";
-            this.collapsibleControlComic.Size = new System.Drawing.Size(336, 20);
-            this.collapsibleControlComic.TabIndex = 48;
-            this.collapsibleControlComic.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.collapsibleControlComic.Click += new System.EventHandler(this.collapsibleControlComic_Click);
-            // 
-            // collapsibleControlEreader
-            // 
-            this.collapsibleControlEreader.CollapsibleInterval = 5;
-            this.collapsibleControlEreader.DisplayText = "---";
-            this.collapsibleControlEreader.Image = null;
-            this.collapsibleControlEreader.Location = new System.Drawing.Point(3, 3);
-            this.collapsibleControlEreader.LowerPanel = null;
-            this.collapsibleControlEreader.Name = "collapsibleControlEreader";
-            this.collapsibleControlEreader.Size = new System.Drawing.Size(336, 20);
-            this.collapsibleControlEreader.TabIndex = 47;
-            this.collapsibleControlEreader.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.collapsibleControlEreader.Click += new System.EventHandler(this.collapsibleControlEreader_Click);
+            this.chkCopyToEreader.AutoSize = true;
+            this.chkCopyToEreader.Checked = true;
+            this.chkCopyToEreader.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkCopyToEreader.Location = new System.Drawing.Point(6, 187);
+            this.chkCopyToEreader.Name = "chkCopyToEreader";
+            this.chkCopyToEreader.Size = new System.Drawing.Size(123, 18);
+            this.chkCopyToEreader.TabIndex = 44;
+            this.chkCopyToEreader.Text = "Upload on E-Reader";
+            this.chkCopyToEreader.UseVisualStyleBackColor = true;
+            this.chkCopyToEreader.CheckedChanged += new System.EventHandler(this.SaveOutputProfile);
             // 
             // panelEmailSettings
             // 
@@ -1950,32 +1950,72 @@
             this.pbTest.UseVisualStyleBackColor = true;
             this.pbTest.Click += new System.EventHandler(this.pbTest_Click);
             // 
-            // groupBox11
+            // collapsibleControlImageEnhancement
             // 
-            this.groupBox11.Controls.Add(this.label1);
-            this.groupBox11.Controls.Add(this.txtPdfDirectory);
-            this.groupBox11.Controls.Add(this.chkOpenDirectoryAfterConversion);
-            this.groupBox11.Controls.Add(this.pbSelectOutputDirectory);
-            this.groupBox11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox11.Location = new System.Drawing.Point(6, 18);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(315, 78);
-            this.groupBox11.TabIndex = 51;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Local working directory";
+            this.collapsibleControlImageEnhancement.CollapsibleInterval = 5;
+            this.collapsibleControlImageEnhancement.DisplayText = "Image Enhancement";
+            this.collapsibleControlImageEnhancement.Image = null;
+            this.collapsibleControlImageEnhancement.Location = new System.Drawing.Point(3, 77);
+            this.collapsibleControlImageEnhancement.LowerPanel = null;
+            this.collapsibleControlImageEnhancement.Name = "collapsibleControlImageEnhancement";
+            this.collapsibleControlImageEnhancement.Size = new System.Drawing.Size(336, 22);
+            this.collapsibleControlImageEnhancement.TabIndex = 52;
+            this.collapsibleControlImageEnhancement.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.collapsibleControlImageEnhancement.Click += new System.EventHandler(this.collapsibleControlImageEnhancement_Click);
             // 
-            // groupBox12
+            // collapsibleControlEmail
             // 
-            this.groupBox12.Controls.Add(this.txtPdfFileName);
-            this.groupBox12.Controls.Add(this.label28);
-            this.groupBox12.Controls.Add(this.pbConcatenate);
-            this.groupBox12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox12.Location = new System.Drawing.Point(3, 150);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(318, 78);
-            this.groupBox12.TabIndex = 52;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Pdf concatenation";
+            this.collapsibleControlEmail.CollapsibleInterval = 5;
+            this.collapsibleControlEmail.DisplayText = "Email settings";
+            this.collapsibleControlEmail.Image = null;
+            this.collapsibleControlEmail.Location = new System.Drawing.Point(3, 52);
+            this.collapsibleControlEmail.LowerPanel = null;
+            this.collapsibleControlEmail.Name = "collapsibleControlEmail";
+            this.collapsibleControlEmail.Size = new System.Drawing.Size(336, 20);
+            this.collapsibleControlEmail.TabIndex = 49;
+            this.collapsibleControlEmail.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.collapsibleControlEmail.Click += new System.EventHandler(this.collapsibleControlEmail_Click);
+            // 
+            // collapsibleControlComic
+            // 
+            this.collapsibleControlComic.CollapsibleInterval = 5;
+            this.collapsibleControlComic.DisplayText = "---";
+            this.collapsibleControlComic.Image = null;
+            this.collapsibleControlComic.Location = new System.Drawing.Point(3, 29);
+            this.collapsibleControlComic.LowerPanel = null;
+            this.collapsibleControlComic.Name = "collapsibleControlComic";
+            this.collapsibleControlComic.Size = new System.Drawing.Size(336, 20);
+            this.collapsibleControlComic.TabIndex = 48;
+            this.collapsibleControlComic.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.collapsibleControlComic.Click += new System.EventHandler(this.collapsibleControlComic_Click);
+            // 
+            // collapsibleControlEreader
+            // 
+            this.collapsibleControlEreader.CollapsibleInterval = 5;
+            this.collapsibleControlEreader.DisplayText = "---";
+            this.collapsibleControlEreader.Image = null;
+            this.collapsibleControlEreader.Location = new System.Drawing.Point(3, 3);
+            this.collapsibleControlEreader.LowerPanel = null;
+            this.collapsibleControlEreader.Name = "collapsibleControlEreader";
+            this.collapsibleControlEreader.Size = new System.Drawing.Size(336, 20);
+            this.collapsibleControlEreader.TabIndex = 47;
+            this.collapsibleControlEreader.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.collapsibleControlEreader.Click += new System.EventHandler(this.collapsibleControlEreader_Click);
+            // 
+            // pbCancel
+            // 
+            this.pbCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pbCancel.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pbCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pbCancel.Location = new System.Drawing.Point(614, 972);
+            this.pbCancel.Name = "pbCancel";
+            this.pbCancel.Size = new System.Drawing.Size(105, 23);
+            this.pbCancel.TabIndex = 45;
+            this.pbCancel.Text = "Cancel";
+            this.pbCancel.UseVisualStyleBackColor = true;
+            this.pbCancel.Click += new System.EventHandler(this.pbCancel_Click);
             // 
             // MainForm
             // 
@@ -1983,6 +2023,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1018, 1031);
+            this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.pbTest);
             this.Controls.Add(this.pbAddComicDirectory);
             this.Controls.Add(this.pPreview);
@@ -1995,7 +2036,7 @@
             this.Name = "MainForm";
             this.Text = "Comics to  E Ink E-Reader Converter ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Leave += new System.EventHandler(this.MainForm_Leave);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -2028,6 +2069,8 @@
             this.panelImageEnhancement.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOriginalHistogram)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreviewHistogram)).EndInit();
             this.gbSharpen2.ResumeLayout(false);
             this.gbSharpen2.PerformLayout();
             this.gbDescreening.ResumeLayout(false);
@@ -2035,6 +2078,10 @@
             this.panelOutput.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
             this.panelEmailSettings.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -2043,10 +2090,6 @@
             this.pPreview.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pOriginal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePreview)).EndInit();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2205,6 +2248,9 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.PictureBox pictureBoxPreviewHistogram;
+        private System.Windows.Forms.PictureBox pictureBoxOriginalHistogram;
+        private System.Windows.Forms.Button pbCancel;
     }
 }
 

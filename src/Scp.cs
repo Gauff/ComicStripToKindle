@@ -1,4 +1,5 @@
 ﻿using Renci.SshNet;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -50,14 +51,36 @@ namespace ComicStripToKindle
 
         public static void UploadFileToDirectory(string host, string username, string privateKeyPath, string localFilePath, string remoteDirectory)
         {
-            using (var client = new ScpClient(GetConnectionInfo(host, username, privateKeyPath)))
+            // Ensure the remote directory exists
+            using (var sshClient = new SshClient(GetConnectionInfo(host, username, privateKeyPath)))
             {
-                client.Connect();
-                using (var fileStream = new FileStream(localFilePath, FileMode.Open))
+                sshClient.Connect();
+
+                // Create remote directory if it does not exist
+                var createDirectoryCommand = $"mkdir -p \"{remoteDirectory}\"";
+                var cmd = sshClient.CreateCommand(createDirectoryCommand);
+                cmd.Execute();
+
+                if (cmd.ExitStatus != 0)
                 {
-                    client.Upload(fileStream, Path.Combine(remoteDirectory, Path.GetFileName(localFilePath)).Replace(@"\", @"/"));
+                    throw new Exception($"Failed to create directory. Error: {cmd.Error}");
                 }
-                client.Disconnect();
+
+                sshClient.Disconnect();
+            }
+
+            // Upload the file
+            using (var scpClient = new ScpClient(GetConnectionInfo(host, username, privateKeyPath)))
+            {
+                scpClient.Connect();
+
+                FileInfo localFileInfo = new FileInfo(localFilePath);
+
+                var remoteFilePath = Path.Combine(remoteDirectory, Path.GetFileName(localFilePath)).Replace(@"\", @"/");
+                //var quotedRemoteFilePath = $"\"{remoteFilePath}\"";
+
+                scpClient.Upload(localFileInfo, remoteFilePath);
+                scpClient.Disconnect();
             }
         }
     }

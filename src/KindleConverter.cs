@@ -48,7 +48,8 @@ namespace ComicStripToKindle.Pdf
                 var comicsPageProvider = ComicPagesFactory.Build(
                     _sourceFilePath,
                     comicConversionProfile.UnSkew,
-                    comicConversionProfile.VerticalSplit);
+                    comicConversionProfile.VerticalSplit,
+                    comicConversionProfile.InvertPages);
                 comicsPageProvider.Progression += ComicsPageProvider_Progression;
                 sourcePages = comicsPageProvider.ExtractPages();
             }
@@ -121,7 +122,15 @@ namespace ComicStripToKindle.Pdf
             progressionPercentage += writePdfFilePercentage;
             OnConversionProgress(progressionPercentage, "Delete Temporary files", sourcePages, extractedPanelsByPageNumber.Values.ToList());
 
-            DeleteTemporaryFiles(sourcePages, extractedPanelsByPageNumber.Values.ToList());
+            try
+            {
+                DeleteTemporaryFiles(sourcePages, extractedPanelsByPageNumber.Values.ToList());
+            }
+            catch (Exception ex)
+            {
+                //Will be deleted during next startup
+                Debug.WriteLine(ex);
+            }
 
             OnConversionProgress(100, "Done", sourcePages, extractedPanelsByPageNumber.Values.ToList());
 

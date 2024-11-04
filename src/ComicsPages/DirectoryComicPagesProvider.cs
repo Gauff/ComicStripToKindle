@@ -7,8 +7,8 @@ namespace ComicStripToKindle.ComicsPages
 {
     class DirectoryComicPagesProvider : ComicPagesProvider
     {
-        public DirectoryComicPagesProvider(string comicPagesSourceFilePath, bool unSkew, bool verticalSplit)
-            : base(comicPagesSourceFilePath, unSkew, verticalSplit)
+        public DirectoryComicPagesProvider(string comicPagesSourceFilePath, bool unSkew, bool verticalSplit, bool invertPages)
+            : base(comicPagesSourceFilePath, unSkew, verticalSplit, invertPages)
         {
         }
 
@@ -88,6 +88,8 @@ namespace ComicStripToKindle.ComicsPages
                     .ToList()
                     .Where(x => new FileInfo(x).Length > 0)
                     .ToList();
+
+                comicFilePaths = VerticalSplitPage(comicFilePaths);
 
                 return BuildComicPages(comicFilePaths, tempDirectory);
             }

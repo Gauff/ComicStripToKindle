@@ -11,8 +11,8 @@ namespace ComicStripToKindle.ComicsPages
 {
     class ArchiveComicPagesProvider : ComicPagesProvider
     {
-        public ArchiveComicPagesProvider(string comicPagesSourceFilePath, bool unSkew, bool verticalSplit)
-            : base(comicPagesSourceFilePath, unSkew, verticalSplit)
+        public ArchiveComicPagesProvider(string comicPagesSourceFilePath, bool unSkew, bool verticalSplit, bool invertPages)
+            : base(comicPagesSourceFilePath, unSkew, verticalSplit, invertPages)
         {
         }
 
@@ -71,6 +71,8 @@ namespace ComicStripToKindle.ComicsPages
                     .Where(x => FileExtensions.AcceptedImageFileExtensions.Contains(new FileInfo(x.ToLowerInvariant()).Extension))
                     .Where(x => new FileInfo(x).Length > 0)
                     .ToList();
+
+                comicFilePaths = VerticalSplitPage(comicFilePaths);
 
                 return BuildComicPages(comicFilePaths, tempDirectory);
             }

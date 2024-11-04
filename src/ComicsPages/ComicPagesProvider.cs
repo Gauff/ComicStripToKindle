@@ -20,15 +20,18 @@ namespace ComicStripToKindle.ComicsPages
         public string ComicPagesSourceFilePath { get; set; }
         public bool UnSkew { get; set; }
         public bool VerticalSplit { get; set; }
+        public bool InvertPages { get; set; }
 
         protected ComicPagesProvider(
             string comicPagesSourceFilePath,
             bool unSkew,
-            bool verticalSplit)
+            bool verticalSplit,
+            bool invertPages)
         {
             ComicPagesSourceFilePath = comicPagesSourceFilePath;
             UnSkew = unSkew;
             VerticalSplit = verticalSplit;
+            InvertPages = invertPages;
         }
 
         public abstract ComicPages ExtractPages();
@@ -59,7 +62,7 @@ namespace ComicStripToKindle.ComicsPages
                 pageNumber++;
                 OnComicPagesProviderProgress(pageNumber, "Split Verticaly");
 
-                var splitPages = ImageFilters.VerticalSplit(comicFilePath);
+                var splitPages = ImageFilters.VerticalSplit(comicFilePath, InvertPages);
 
                 updatedcomicFilePaths.AddRange(splitPages);
                 if (splitPages.Count == 2)
@@ -74,7 +77,7 @@ namespace ComicStripToKindle.ComicsPages
             if (!VerticalSplit)
                 return new List<string> { comicFilePath };
 
-            var updatedcomicFilePaths = ImageFilters.VerticalSplit(comicFilePath);
+            var updatedcomicFilePaths = ImageFilters.VerticalSplit(comicFilePath, InvertPages);
             File.Delete(comicFilePath);
 
             return updatedcomicFilePaths;

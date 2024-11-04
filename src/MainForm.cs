@@ -26,6 +26,7 @@ namespace ComicStripToKindle
     using AForge.Imaging;
     using Controls;
     using System.Configuration;
+    using System.Drawing.Imaging;
     using System.Net.NetworkInformation;
 
     public partial class MainForm : Form
@@ -38,6 +39,8 @@ namespace ComicStripToKindle
         private ProfileFiles ProfileFiles;
         private DriveInfo EReaderDriveInfo;
         private List<CollapsibleControl> collapsibleControls;
+        private bool IsConnected = false;
+        private bool IsCancelled = false;
         public MainForm()
         {
             InitializeComponent();
@@ -45,7 +48,7 @@ namespace ComicStripToKindle
             UsbNotification.RegisterUsbDeviceNotification(this.Handle);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             UI_InitialiseCollapsablePanels();
 
@@ -65,15 +68,13 @@ namespace ComicStripToKindle
             CurrentOutputProfile = ProfileFiles.LoadOutputProfile();
             UI_ApplyOutputProfile(CurrentOutputProfile);
 
-            FileSystemUtilities.ClearTemporaryDirectories();
-
             collapsibleControls = new List<CollapsibleControl>();
             collapsibleControls.AddRange(this.FindChildControlsOfType<CollapsibleControl>());
 
             UI_LoadSelectedSettings();
+
+            FileSystemUtilities.ClearTemporaryDirectories();
         }
-
-
 
         void UI_InitialiseCollapsablePanels()
         {
@@ -193,7 +194,6 @@ namespace ComicStripToKindle
             panelImageEnhancement.Visible = panelImageEnhancementVisible;
         }
 
-
         private void CollapsibleControl_CollapsedStateChanged(object sender, Controls.CollapsibleControl.ControlState controlState)
         {
             if (collapsibleControls == null)
@@ -215,8 +215,6 @@ namespace ComicStripToKindle
 
             UI_ReorganisePanels();
         }
-
-
         private void collapsibleControlEreader_Click(object sender, EventArgs e)
         {
             // collapsibleControlComic.ControlCollaspedState = ;
@@ -310,6 +308,8 @@ namespace ComicStripToKindle
 
         void UI_SetEReaderStatus()
         {
+            IsConnected = false;
+
             if (chkUseKindleLocalDrive.Checked)
             {
                 pHostAvailable.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Error];
@@ -321,7 +321,10 @@ namespace ComicStripToKindle
                     if (null == EReaderDriveInfo)
                         pVolumeConected.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Error];
                     else
+                    {
                         pVolumeConected.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Done];
+                        IsConnected = true;
+                    }
 
                     collapsibleControlEreader.Image = pVolumeConected.Image;
                 }));
@@ -331,14 +334,17 @@ namespace ComicStripToKindle
             {
                 pVolumeConected.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Error];
 
-                Task.Factory.StartNew(new Action(() =>
-                {
+                //Task.Factory.StartNew(new Action(() =>
+                //{
                     bool hostAvailable = !string.IsNullOrEmpty(txtScpHost.Text) 
                         ? Network.IsHostAvailable(txtScpHost.Text)
                         : false;
 
                     if (hostAvailable)
+                    {
                         pHostAvailable.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Done];
+                        IsConnected = true;
+                    }
                     else
                         pHostAvailable.Image = IconImageList.Images.Cast<Bitmap>().ToList()[(int)ImageLists.ImageStates.Error];
 
@@ -357,7 +363,7 @@ namespace ComicStripToKindle
                             new Action<List<string>>(UI_SetEreaderScpDirectoryList), 
                             directories);
                     }
-                }));
+                //}));
             }
         }
 
@@ -461,6 +467,12 @@ namespace ComicStripToKindle
                 //    (originalFileLvi) =>
                 foreach (var lvi in lvis)
                 {
+                    if (IsCancelled)
+                    {
+                        IsCancelled = false;
+                        break;
+                    }
+
                     try
                     {
                         var sourceFilePath = ((KindleConverter.ConversionProgressEventArgs)lvi.Tag).SourceFilePath;
@@ -483,7 +495,11 @@ namespace ComicStripToKindle
                     }
                 }
             })
-            .ContinueWith(x => { if (chkOpenDirectoryAfterConversion.Checked) Process.Start(txtPdfDirectory.Text); });
+            .ContinueWith(x => 
+            { 
+                if (chkOpenDirectoryAfterConversion.Checked) 
+                    Process.Start(txtPdfDirectory.Text); 
+            });
         }
 
         private readonly SynchronizationContext synchronizationContext;
@@ -495,6 +511,7 @@ namespace ComicStripToKindle
 
                 progressBar.Value = (int)(_fileConversionProgress.Values.Sum() / _fileConversionProgress.Count());
 
+                Application.DoEvents();
                 Application.DoEvents();
             }), e);
         }
@@ -1083,8 +1100,7 @@ namespace ComicStripToKindle
             UI_AddImageEnhancementProfile(imageEnhancementProfile);
             cbImageEnhancementProfile.SelectedIndex = cbImageEnhancementProfile.Items.Count - 1;
         }
-
-        private void pbDleteImageEnhancement_Click(object sender, EventArgs e)
+        private void pbDeleteImageEnhancement_Click(object sender, EventArgs e)
         {
             var profile = UI_GetImageEnhancementProfile();
             ProfileFiles.Delete(profile);
@@ -1109,8 +1125,6 @@ namespace ComicStripToKindle
 
             collapsibleControlImageEnhancement.DisplayText = profile.Name;
         }
-
-
 
         private void pbSaveComicProfile_Click(object sender, EventArgs e)
         {
@@ -1186,13 +1200,14 @@ namespace ComicStripToKindle
             catch { }
         }
 
-
         private void CopyToEreaderResult(string sourceFilePath, bool ok)
         {
             synchronizationContext.Post(new SendOrPostCallback(o =>
             {
                 // find the LVI based on the "key" in 
-                var lvi = lvFiles.Items.Cast<ListViewItem>().FirstOrDefault(q => ((KindleConverter.ConversionProgressEventArgs)q.Tag).SourceFilePath == sourceFilePath);
+                var lvi = lvFiles.Items
+                .Cast<ListViewItem>()
+                .FirstOrDefault(q => ((KindleConverter.ConversionProgressEventArgs)q.Tag).SourceFilePath == sourceFilePath);
                 if (lvi != null)
                 {
                     lvi.SubItems[3].Text = ok ? "O" : "X";
@@ -1209,7 +1224,9 @@ namespace ComicStripToKindle
             synchronizationContext.Post(new SendOrPostCallback(o =>
             {
                 // find the LVI based on the "key" in 
-                var lvi = lvFiles.Items.Cast<ListViewItem>().FirstOrDefault(q => ((KindleConverter.ConversionProgressEventArgs)q.Tag).SourceFilePath == sourceFilePath);
+                var lvi = lvFiles.Items
+                .Cast<ListViewItem>()
+                .FirstOrDefault(q => ((KindleConverter.ConversionProgressEventArgs)q.Tag).SourceFilePath == sourceFilePath);
                 if (lvi != null)
                 {
                     lvi.SubItems[4].Text = ok ? "O" : "X";
@@ -1229,9 +1246,12 @@ namespace ComicStripToKindle
         void CopyToEreader(OutputProfile profile, string convertedKindlePdfFilePath, string sourceFilePath)
         {
             if (!profile.UploadOnEreader)
-            {
                 return;
-            }
+
+            UI_SetEReaderStatus();
+
+            if(!IsConnected)
+                return;
 
             if (chkUseKindleLocalDrive.Checked && EReaderDriveInfo != null)
             {
@@ -1260,11 +1280,13 @@ namespace ComicStripToKindle
                 }
             }
 
-            if(chkUseScp.Checked && Network.IsHostAvailable(txtScpHost.Text))
+            if(chkUseScp.Checked && IsConnected)
             {
                 try
                 {
                     var fi = new FileInfo(convertedKindlePdfFilePath);
+
+                    Debug.WriteLine($"Uploading {fi.Name} to {txtScpRemotePath.Text}...");
 
                     Scp.UploadFileToDirectory(
                         txtScpHost.Text,
@@ -1272,10 +1294,14 @@ namespace ComicStripToKindle
                         txtScpPrivateKeyFile.Text,
                         fi.FullName,
                         txtScpRemotePath.Text);
+
+                    Debug.WriteLine($"Upload success.");
+
+                    CopyToEreaderResult(sourceFilePath, true);
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine(e);
+                    Debug.WriteLine($"Upload failed: {e}");
                     CopyToEreaderResult(sourceFilePath, false);
                 }
             }
@@ -1355,7 +1381,13 @@ namespace ComicStripToKindle
 
             var sourceFilePath = ((KindleConverter.ConversionProgressEventArgs)lvFiles.SelectedItems[0].Tag).SourceFilePath;
 
-            var sourcePages = ComicPagesFactory.Build(sourceFilePath, false, CurrentComicConversionProfile.VerticalSplit).ExtractRandomPage();
+            var sourcePages = ComicPagesFactory
+                .Build(
+                    sourceFilePath, 
+                    false, 
+                    CurrentComicConversionProfile.VerticalSplit, 
+                    CurrentComicConversionProfile.InvertPages)
+                .ExtractRandomPage();
 
             var panelExtractor = new PanelExtractor(CurrentElectronicReaderProfile, CurrentComicConversionProfile, CurrentImageEnhancementProfile);
 
@@ -1395,9 +1427,10 @@ namespace ComicStripToKindle
             ElectronicReaderProfile electronicReaderProfile,
             ImageEnhancementProfile imageEnhancementProfile)
         {
-            pOriginal.Image.ApplyToJpegCompression(99, out long originalJpegSize);
-            double originalImageSize = (double)originalJpegSize / 1024;
-            lOriginalSize.Text = $"{originalImageSize.ToString("####.##")} KB";
+            long originalImageSizeInBytes = ImageUtilities.GetImageSizeInBytes(pOriginal.Image, ImageFormat.Jpeg);
+;
+            double originalImageSizeInKiloBytes = (double)originalImageSizeInBytes / 1024;
+            lOriginalSize.Text = $"{originalImageSizeInKiloBytes.ToString("####.##")} KB";
 
             lPreview.Text = "Generating...";
 
@@ -1406,13 +1439,37 @@ namespace ComicStripToKindle
             var panelExtractor = new PanelExtractor(electronicReaderProfile, null, imageEnhancementProfile);
 
             picturePreview.Image = panelExtractor.EnhancePanelImagePreview(previewPanel, out long sizeInBytes);
+            
+            Application.DoEvents();
 
             lPreview.Text = "Preview Size: ";
             var imageSize = (double)sizeInBytes / 1024;
 
-            var reductionPercentage = 100 - (imageSize / originalImageSize * 100);
+            var reductionPercentage = 100 - (imageSize / originalImageSizeInKiloBytes * 100);
 
             lConvertedSize.Text = $"{imageSize.ToString("####.##")} KB. Reduction: {reductionPercentage.ToString("###.##")} %";
+
+            Application.DoEvents();
+            // Run histogram generation in parallel tasks
+            Task.Run(() =>
+            {
+                this.Invoke((Action)(() =>
+                {
+                    HistogramGenerator.GenerateInverseHistogram(pOriginal, pictureBoxOriginalHistogram, this.BackColor);
+                }));
+            });
+
+            Task.Run(() =>
+            {
+                this.Invoke((Action)(() =>
+                {
+                    HistogramGenerator.GenerateInverseHistogram(picturePreview, pictureBoxPreviewHistogram, this.BackColor);
+                }));
+            });
+
+            // Ensures the UI stays responsive while tasks are running
+            Application.DoEvents();
+
         }
 
         private void pHidePreview_Click(object sender, EventArgs e)
@@ -1739,6 +1796,11 @@ namespace ComicStripToKindle
                 return;
 
             txtScpRemotePath.Text = cbScpDirectoryList.SelectedItem.ToString();
+        }
+
+        private void pbCancel_Click(object sender, EventArgs e)
+        {
+            IsCancelled = true;
         }
     }
 }

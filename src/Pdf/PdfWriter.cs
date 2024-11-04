@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ComicStripToKindle.Pdf
 {
@@ -88,13 +89,27 @@ namespace ComicStripToKindle.Pdf
 
                 foreach (string sourceFile in sourceFiles)
                 {
-                    using (PdfReader pdfReader = new PdfReader(sourceFile))
+                    try
                     {
-                        for (int page = 1; page <= pdfReader.NumberOfPages; page++)
+                        using (PdfReader pdfReader = new PdfReader(sourceFile))
                         {
-                            PdfImportedPage importedPage = pdfCopy.GetImportedPage(pdfReader, page);
-                            pdfCopy.AddPage(importedPage);
+                            for (int page = 1; page <= pdfReader.NumberOfPages; page++)
+                            {
+                                try
+                                {
+                                    PdfImportedPage importedPage = pdfCopy.GetImportedPage(pdfReader, page);
+                                    pdfCopy.AddPage(importedPage);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Debug.WriteLine($"{sourceFile} | {page} | {ex.Message} | {ex}");
+                                }
+                            }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"{sourceFile} | {ex.Message} | {ex}");
                     }
                 }
 

@@ -49,7 +49,7 @@ namespace ComicStripToKindle
             return SkewCheck(bitmap, absoluteAngleLimit);
         }
 
-        public static List<string> VerticalSplit(string filePath)
+        public static List<string> VerticalSplit(string filePath, bool manga=false)
         {
             List<Bitmap> splitBitmaps;
             using (var bitmap = AForge.Imaging.Image.FromFile(filePath))
@@ -66,7 +66,10 @@ namespace ComicStripToKindle
             splitBitmaps[0].SaveToTiffFile(filePath1);
             splitBitmaps[1].SaveToTiffFile(filePath2);
 
-            return new List<string> { filePath1, filePath2 };
+            if(!manga)
+                return new List<string> { filePath1, filePath2 };
+            else
+                return new List<string> { filePath2, filePath1 };
         }
 
         public static Bitmap SkewCheck(Bitmap bitmap, float absoluteAngleLimit = 13)

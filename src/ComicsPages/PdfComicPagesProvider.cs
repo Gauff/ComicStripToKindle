@@ -7,8 +7,8 @@ namespace ComicStripToKindle.ComicsPages
 {
     class PdfComicPagesProvider : ComicPagesProvider
     {
-        public PdfComicPagesProvider(string comicPagesSourceFilePath, bool unSkew, bool verticalSplit)
-            : base(comicPagesSourceFilePath, unSkew, verticalSplit)
+        public PdfComicPagesProvider(string comicPagesSourceFilePath, bool unSkew, bool verticalSplit, bool invertPages)
+            : base(comicPagesSourceFilePath, unSkew, verticalSplit, invertPages)
         {
         }
 
