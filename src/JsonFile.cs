@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Runtime.Serialization.Json;
 using System.IO;
 
 namespace ComicStripToKindle
@@ -7,12 +7,20 @@ namespace ComicStripToKindle
     {
         public static void Save<T>(string filePath, T obj)
         {
-            File.WriteAllText(filePath, JsonConvert.SerializeObject(obj));
+            var serializer = new DataContractJsonSerializer(typeof(T));
+            using (FileStream fs = new FileStream(filePath, FileMode.Create))
+            {
+                serializer.WriteObject(fs, obj);
+            }
         }
 
         public static T Load<T>(string filePath)
         {
-            return JsonConvert.DeserializeObject<T>(File.ReadAllText(filePath));
+            var serializer = new DataContractJsonSerializer(typeof(T));
+            using (FileStream fs = new FileStream(filePath, FileMode.Open))
+            {
+                return (T)serializer.ReadObject(fs);
+            }
         }
     }
 }
